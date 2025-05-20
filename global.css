@@ -1,1 +1,40 @@
+*,
+*::before,
+*::after {
+    /* border: 1px solid red !important; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --vColor1: rgb(46, 125, 50);
+    --vColor2: rgb(40, 53, 147);
+    --vColor3: rgb(241, 248, 246);
+    --vColor4: rgb(21, 51, 52);
+    --vColor5: rgb(240, 44, 0);
+
+    --vBg1: rgb(46, 125, 50);
+    --vBg2: rgb(40, 53, 147);
+    --vBg3: rgb(40, 53, 147);
+
+    --vShade1: rgb(33, 33, 33);
+    --vShade2: rgb(255, 255, 255);
+    --vShade3: rgb(189, 189, 189);
+
+    --color1: 46, 125, 50;
+    --color2: 40, 53, 147;
+    --color3: 241, 248, 246;
+    --color4: 241, 248, 246;
+    --color5: 241, 248, 246;
+
+    --bg1: 46, 125, 50;
+    --bg2: 40, 53, 147;
+    --bg3: 241, 248, 246;
+
+    --shade1: 33, 33, 33;
+    --shade2: 255, 255, 255;
+    --shade3: 189, 189, 189;
+}
+
 body {}

@@ -1,6 +1,11 @@
 import { navbarMain } from "./navbar/navbar.js";
 import { loadComponent } from "./utility.js";
 
+//to do
+//ensure navbar resize
+//template for nav elements - submenu
+//dummy logic for users
+
 async function layout() {
     //load content first
     await Promise.all([0, 1, 2].map(async each => {

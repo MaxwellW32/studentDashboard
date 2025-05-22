@@ -1,11 +1,13 @@
 *,
 *::before,
 *::after {
-    all: unset;
     box-sizing: border-box;
     border: 1px solid red !important;
 }
 
+*:not(svg, svg *) {
+    all: unset;
+}
 
 :root {
     --color1: #c4ebfa;
@@ -19,7 +21,32 @@
     --shade1: #aeb0b1;
     --shade2: #2a2512;
 
+    /* es s r l el */
+
     /* zindex: 1, 10, 100, 1000, 9999 */
+
+    /* sizes */
+    --sizeR: 1rem;
+
+    /* font sizes */
+    --fontSizeES: .5rem;
+    --fontSizeS: .7rem;
+    --fontSizeR: 1rem;
+
+    /* padding */
+    --paddingR: 1rem;
+
+    /* gap */
+    --gapS: .5rem;
+    --gapR: 1rem;
+
+    /* border radius */
+    --borderRadiusES: .2rem;
+    --borderRadiusR: 1rem;
+    --borderRadiusL: 2rem;
+    --borderRadiusEL: 50%;
+
+
 }
 
 
@@ -65,25 +92,87 @@ body {
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
     position: relative;
+    font-family: roboto;
 }
 
-/* custom */
-#allCont {
+div {
+    display: block;
+}
+
+svg {
+    width: var(--sizeR);
+    aspect-ratio: 1/1;
+    fill: var(--shade1);
+}
+
+
+
+h1 {
+    /* title */
+    font-family: manrope;
+
+}
+
+h2 {
+    /* common headings */
+    font-weight: bold;
+    color: var(--shade2);
+    font-size: var(--fontSizeR);
+    font-family: manrope;
+}
+
+h3 {
+    /* sub headings */
+}
+
+h4 {
+    /* highlighted text */
+    color: var(--shade1);
+    font-size: var(--fontSizeS);
+}
+
+
+
+
+/* custom classes */
+.input1,
+.textarea1 {
+    padding: var(--paddingR);
+    border-radius: var(--borderRadiusES);
+    border: 1px solid var(--shade1);
+}
+
+.input1:focus,
+.textarea1:focus {
+    outline: none;
+}
+
+.input1::placeholder,
+.textarea1::placeholder {
+    opacity: 0.5;
+}
+
+.allCont {
     display: grid;
     align-content: flex-start;
+    gap: var(--gapR);
+    padding: var(--paddingR);
     grid-template-columns: 1fr;
     background-color: var(--bg1);
-}
-
-.navbar {
-    background-color: var(--bg1);
-
 }
 
 .sidebar {
     width: min(300px, 100vw);
     z-index: 1000;
     background-color: var(--bg2);
+}
+
+.main {
+    display: grid;
+    align-content: flex-start;
+    background-color: var(--bg2);
+    padding: var(--paddingR);
+    border-radius: var(--borderRadiusR);
 }
 
 /* mobile */
@@ -100,14 +189,32 @@ body {
     }
 }
 
-#testFont {
-    font-family: poppinsRegular;
+
+
+
+
+
+
+
+
+
+/* specific components */
+
+/* navbar */
+
+.navbar {
+    background-color: var(--bg1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#testFont2 {
-    font-family: roboto;
+.navMenu {
+    display: flex;
+    gap: var(--gapR);
 }
 
-#testFont3 {
-    font-family: manrope;
+.navMenuItem {
+    display: grid;
+    align-content: flex-start;
 }

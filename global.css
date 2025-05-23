@@ -46,6 +46,8 @@
     --borderRadiusL: 2rem;
     --borderRadiusEL: 50%;
 
+    --sas: 800px;
+
 
 }
 
@@ -161,11 +163,7 @@ h4 {
     background-color: var(--bg1);
 }
 
-.sidebar {
-    width: min(300px, 100vw);
-    z-index: 1000;
-    background-color: var(--bg2);
-}
+
 
 .main {
     display: grid;
@@ -180,13 +178,6 @@ h4 {
     body {
         grid-template-columns: 1fr;
     }
-
-    .sidebar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-    }
 }
 
 
@@ -200,21 +191,81 @@ h4 {
 
 /* specific components */
 
-/* navbar */
+/* sidebar */
+.sidebar {
+    width: 300px;
+    z-index: 1000;
+    background-color: var(--bg2);
+    display: grid;
+    align-content: flex-start;
+}
 
+.sidebarIconCont {
+    display: grid;
+    align-content: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* navbar */
 .navbar {
     background-color: var(--bg1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    white-space: nowrap;
 }
 
 .navMenu {
     display: flex;
     gap: var(--gapR);
+    position: relative;
+    align-items: center;
 }
 
 .navMenuItem {
     display: grid;
     align-content: flex-start;
+}
+
+.navMoreOptionsCont {
+    display: flex;
+    gap: var(--gapS);
+}
+
+
+/* mobile */
+@media only screen and (max-width: 800px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: none;
+    }
+
+    .navMoreOptionsCont {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 1rem;
+        background-color: var(--bg2);
+    }
 }

@@ -21,9 +21,8 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    border: 1px solid red !important;
-    each css block is spaced 50,
-    sub blocks spaces 20 - each has a media query
+    /* border: 1px solid red !important; */
+    /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
 :root {
@@ -464,6 +463,10 @@ h4 {
     border-radius: var(--borderRadiusES);
 }
 
+.dateSelectorOption {
+    cursor: pointer;
+}
+
 .dateSelectorOption[data-selected="true"] {
     background-color: var(--color2);
 }
@@ -473,7 +476,7 @@ h4 {
     align-content: flex-start;
     border-radius: var(--borderRadiusR);
     padding: var(--paddingR);
-    border: 1px solid var(--bg1);
+    border: 3px solid var(--bg1);
 }
 
 .calenderCont {
@@ -484,6 +487,9 @@ h4 {
 .calenderTable {
     display: grid;
     align-content: flex-start;
+    border-bottom: 3px solid var(--bg1);
+    border-right: 3px solid var(--bg1);
+    border-radius: var(--borderRadiusR);
 }
 
 .calenderTable>tr {
@@ -497,8 +503,14 @@ h4 {
     align-content: flex-start;
     aspect-ratio: 1/1.5;
     max-height: 200px;
+    border-top: 3px solid var(--bg1);
+    border-left: 3px solid var(--bg1);
+    padding: var(--paddingR);
 }
 
-.calenderTableHead {}
+.calenderTableHead {
+    background-color: var(--color1);
+    aspect-ratio: initial;
+}
 
 .calenderTableData {}

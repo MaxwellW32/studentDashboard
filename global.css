@@ -1,12 +1,29 @@
+@font-face {
+    font-family: poppinsRegular;
+    src: url("fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("fonts/Roboto.ttf");
+}
+
+@font-face {
+    font-family: manrope;
+    src: url("fonts/Manrope.ttf");
+}
+
+*:not(svg, svg *) {
+    all: unset;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     border: 1px solid red !important;
-}
-
-*:not(svg, svg *) {
-    all: unset;
+    each css block is spaced 50,
+    sub blocks spaces 20 - each has a media query
 }
 
 :root {
@@ -20,6 +37,7 @@
 
     --shade1: #aeb0b1;
     --shade2: #2a2512;
+    --shade3: #ffffff;
 
     /* es s r l el */
 
@@ -34,6 +52,8 @@
     --fontSizeR: 1rem;
 
     /* padding */
+    --paddingES: .2rem;
+    --paddingS: .5rem;
     --paddingR: 1rem;
 
     /* gap */
@@ -50,23 +70,6 @@
 
 
 }
-
-
-@font-face {
-    font-family: poppinsRegular;
-    src: url("fonts/Poppins-Regular.ttf");
-}
-
-@font-face {
-    font-family: roboto;
-    src: url("fonts/Roboto.ttf");
-}
-
-@font-face {
-    font-family: manrope;
-    src: url("fonts/Manrope.ttf");
-}
-
 
 head,
 script {
@@ -89,7 +92,8 @@ html {
 
 body {
     min-height: 100%;
-    display: grid;
+    /* starts off none until js loads */
+    display: none;
     align-content: flex-start;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
@@ -105,14 +109,17 @@ svg {
     width: var(--sizeR);
     aspect-ratio: 1/1;
     fill: var(--shade1);
+    transition: scale 400ms;
 }
 
-
+svg:hover {
+    scale: 1.05;
+}
 
 h1 {
     /* title */
     font-family: manrope;
-
+    text-transform: capitalize;
 }
 
 h2 {
@@ -121,6 +128,7 @@ h2 {
     color: var(--shade2);
     font-size: var(--fontSizeR);
     font-family: manrope;
+    text-transform: capitalize;
 }
 
 h3 {
@@ -136,7 +144,58 @@ h4 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* custom classes */
+.button1 {
+    background-color: var(--color2);
+    border-radius: var(--borderRadiusES);
+    padding: var(--paddingES);
+}
+
 .input1,
 .textarea1 {
     padding: var(--paddingR);
@@ -163,8 +222,6 @@ h4 {
     background-color: var(--bg1);
 }
 
-
-
 .main {
     display: grid;
     align-content: flex-start;
@@ -173,12 +230,57 @@ h4 {
     border-radius: var(--borderRadiusR);
 }
 
+.tag {
+    padding: var(--paddingS);
+    background-color: var(--tagColor, var(--color2));
+    border-radius: var(--borderRadiusES);
+}
+
 /* mobile */
 @media only screen and (max-width: 800px) {
     body {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,6 +306,7 @@ h4 {
     display: grid;
     align-content: flex-start;
 }
+
 
 
 
@@ -269,3 +372,133 @@ h4 {
         background-color: var(--bg2);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* pages */
+
+/* home */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* calender */
+.calender {
+    display: grid;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+.calenderTopCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dateSelectorCont {
+    display: flex;
+    align-content: flex-start;
+    background-color: var(--bg1);
+    padding: var(--paddingS);
+    border-radius: var(--borderRadiusES);
+}
+
+.dateSelectorOption[data-selected="true"] {
+    background-color: var(--color2);
+}
+
+.callenderSmallCont {
+    display: grid;
+    align-content: flex-start;
+    border-radius: var(--borderRadiusR);
+    padding: var(--paddingR);
+    border: 1px solid var(--bg1);
+}
+
+.calenderCont {
+    display: grid;
+    align-content: flex-start;
+}
+
+.calenderTable {
+    display: grid;
+    align-content: flex-start;
+}
+
+.calenderTable>tr {
+    display: grid;
+    align-content: flex-start;
+    grid-template-columns: repeat(7, 1fr)
+}
+
+.calenderCell {
+    display: grid;
+    align-content: flex-start;
+    aspect-ratio: 1/1.5;
+    max-height: 200px;
+}
+
+.calenderTableHead {}
+
+.calenderTableData {}

@@ -26,23 +26,41 @@ export async function loadComponent({ componentLocation, elSelector }: { compone
     elToReplace.replaceWith(newEl);
 }
 
-export function getElement<T>(elSelector: string): T {
-    const seenEl = document.querySelector(elSelector);
+export function getElement<T extends Element>(
+    elSelector: string,
+): T;
+export function getElement<T extends Element>(
+    elSelector: string,
+    option: "all"
+): NodeListOf<T>;
+export function getElement<T extends Element>(
+    elSelector: string,
+    option?: "all" | undefined
+): T | NodeListOf<T> {
+    const seenEl =
+        option === undefined
+            ? document.querySelector(elSelector)
+            : document.querySelectorAll(elSelector);
+
     if (seenEl === null) {
         throw new Error(`Element not found for selector: ${elSelector}`);
     }
 
-    return seenEl as T
+    return option === undefined
+        ? (seenEl as T)
+        : (seenEl as NodeListOf<T>);
 }
 
-// export async function loadComponent({ componentLocation, elSelector }: { componentLocation: string, elSelector: string }) {
-//     const seenHtml = await getComponentHTML(componentLocation)
+export function validateTypeOption<T>(arrayOptions: T[], option: string): T {
+    if (!arrayOptions.includes(option as T)) throw new Error(`invalid option ${option}`)
 
-//     //element to replace
-//     const elToReplace = document.querySelector(elSelector)
-//     if (elToReplace === null) {
-//         throw new Error(`not seeing element for ${componentLocation}`)
-//     }
+    return option as T
+}
 
-//     elToReplace.innerHTML = seenHtml;
-// }
+export function formatDateCustom(date: Date): string {
+    return date.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+    }).replace(",", ""); // Remove default comma between day and year
+}

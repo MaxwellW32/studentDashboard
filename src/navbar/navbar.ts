@@ -3,7 +3,7 @@ import { getElement } from "../utility.js";
 export function navbarMain() {
     let navMoreOptionsShowing = false
 
-    const navbarIconCont = getElement<HTMLDivElement>("#navbarIconCont")
+    const navbarIconCont = getElement("#navbarIconCont")
     navbarIconCont.addEventListener("click", handleNavBarIconContClick)
 
     const navMoreOptionsCont = getElement<HTMLDivElement>(".navMoreOptionsCont")

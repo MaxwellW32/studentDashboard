@@ -2,13 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../global.css" />
     <script type="module" defer src="../out/layout.js"></script>
 
     <script type="module" defer src="../out/calender.js"></script>
-    <title>Student Dashboard</title>
 </head>
 
 <body>
@@ -18,30 +15,80 @@
         <div id="navTemplate"></div>
 
         <main class="main">
-            <div class="calenderTopCont">
-                <ul class="dateSelectorCont">
-                    <li>month</li>
-                    <li>week</li>
-                    <li>day</li>
-                </ul>
+            <div class="calender">
+                <div style="display: grid; align-content: flex-start; min-width: 800px;">
+                    <div class="calenderTopCont">
+                        <ul class="dateSelectorCont">
+                            <li data-selected="true" data-date-option="month" class="dateSelectorOption tag"
+                                style="--tagColor: ''">Month</li>
+                            <li data-selected="false" data-date-option="week" class="dateSelectorOption tag"
+                                style="--tagColor: ''">Week</li>
+                            <li data-selected="false" data-date-option="day" class="dateSelectorOption tag"
+                                style="--tagColor: ''">Day</li>
+                        </ul>
 
-                <h2>todays date</h2>
+                        <h2 id="calenderTodayDateMarker"></h2>
 
-                <div class="calenderMoreOptions"></div>
-            </div>
+                        <div
+                            style="text-transform: capitalize; color: var(--shade1); display: flex;align-items: center; gap: var(--gapS);">
+                            <p id="selectedDateComparisonMarker"></p>
 
-            <div class="calenderMainCont">
-                <div class="calenderCont">
-                    <p>actual calander</p>
-                </div>
+                            <div style="background-color: var(--bg1);">
+                                <button data-move-option="prev" class="button1 dateMoveButton">
+                                    <svg style="fill: var(--shade3);" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 320 512">
+                                        <path
+                                            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+                                    </svg>
+                                </button>
 
-                <div class="calenderRightCont">
-                    <div class="agendaCont">
-                        <h2>agenda</h2>
+                                <button data-move-option="next" class="button1 dateMoveButton">
+                                    <svg style="fill: var(--shade3);" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 320 512">
+                                        <path
+                                            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="todayCont">
-                        <h2>today</h2>
+                    <div style="display: grid; grid-template-columns: 3fr 1fr; max-height: 70vh; overflow: auto;">
+                        <div class="calenderCont">
+                            <!-- default layout for table headings in the calender -->
+                            <template id="calenderTableHead">
+                                <th class="calenderCell calenderTableHead">
+
+                                </th>
+                            </template>
+
+                            <!-- default layout for table data in the calender -->
+                            <template id="calenderTableData">
+                                <td class="calenderCell calenderTableData">
+                                    <!-- date -->
+                                    <p></p>
+
+                                    <!-- lists for that day -->
+                                    <div class="calenderTableDataList">
+
+                                    </div>
+                                </td>
+                            </template>
+
+                            <table class="calenderTable">
+
+                            </table>
+                        </div>
+
+                        <div style="display: grid; align-content: flex-start; gap: var(--gapR); ">
+                            <div class="callenderSmallCont">
+                                <h2>agenda</h2>
+                            </div>
+
+                            <div class="callenderSmallCont">
+                                <h2 id="selectedDateMarker"></h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

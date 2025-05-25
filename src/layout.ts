@@ -2,8 +2,10 @@ import { navbarMain } from "./navbar/navbar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
 
 //to do
-//keep things simple front end only
-//implement notes e.g stuff
+//build sidebar - simple text logo
+//make template 
+//make object for nav - svg, title, link, subMenu
+//fix agenda view
 
 async function layout() {
     //load content first

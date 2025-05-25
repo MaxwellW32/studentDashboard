@@ -313,8 +313,52 @@ p {
     align-content: flex-start;
 }
 
+.sidebarMenu {
+    display: grid;
+    align-content: flex-start;
+    gap: var(--gapS);
+    color: var(--shade1);
+}
 
+.sidebarMenuItem {
+    display: grid;
+    align-content: flex-start;
+}
 
+.sidebarMenuItem:hover .sidebarMenuItemChevron {
+    rotate: 90deg;
+}
+
+.sidebarMenuItem>svg {
+    fill: var(--shade1)
+}
+
+.sidebarMenuItem:focus .sidebarSubMenu,
+.sidebarMenuItem:hover .sidebarSubMenu {
+    display: grid;
+}
+
+.sidebarMenuItemTopCont {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--gapR);
+}
+
+.sidebarMenuItemChevron {
+    transition: rotate 400ms;
+}
+
+.sidebarMenuItem:not(:has(.sidebarSubMenu)) .sidebarMenuItemChevron {
+    /* chevron */
+    display: none;
+}
+
+.sidebarSubMenu {
+    display: none;
+    align-content: flex-start;
+    gap: var(--gapS);
+}
 
 
 
@@ -520,6 +564,7 @@ p {
 .calenderCell {
     display: grid;
     align-content: flex-start;
+    min-width: 100px;
     gap: var(--gapS);
     aspect-ratio: 1/1.5;
     max-height: 200px;

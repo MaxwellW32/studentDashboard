@@ -2,29 +2,68 @@ export async function getComponentHTML(componentLocation: string) {
     const response = await fetch(componentLocation)
     const seenHtml = await response.text()
 
+    if (componentLocation === "../components/sidebar/sidebar.html") {
+        console.log(`$seenHtml`, seenHtml);
+    }
+
     return seenHtml
 }
 
-export async function loadComponent({ componentLocation, elSelector }: { componentLocation: string, elSelector: string }) {
+// export async function loadComponent({ componentLocation, elSelector }: { componentLocation: string, elSelector: string }) {
+//     const seenHtml = await getComponentHTML(componentLocation);
+
+//     const elToReplace = document.querySelector(elSelector);
+//     if (elToReplace === null) {
+//         throw new Error(`Element not found for selector: ${elSelector}`);
+//     }
+
+//     // Create a container to parse HTML
+//     const wrapper = document.createElement("div");
+//     wrapper.innerHTML = seenHtml;
+
+//     const newEl = wrapper.firstElementChild;
+
+//     if (newEl === null) {
+//         throw new Error(`No valid HTML returned from: ${componentLocation}`);
+//     }
+
+//     elToReplace.replaceWith(newEl);
+
+//     if (elSelector === "#sidebarTemplate") {
+//         console.log(`$seenHtml`, seenHtml);
+
+//     }
+// }
+
+export async function loadComponent({
+    componentLocation,
+    elSelector,
+}: {
+    componentLocation: string;
+    elSelector: string;
+}) {
     const seenHtml = await getComponentHTML(componentLocation);
 
     const elToReplace = document.querySelector(elSelector);
-    if (elToReplace === null) {
+    if (!elToReplace) {
         throw new Error(`Element not found for selector: ${elSelector}`);
     }
 
-    // Create a container to parse HTML
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = seenHtml;
+    // Use <template> to safely parse all HTML content
+    const template = document.createElement("template");
+    template.innerHTML = seenHtml.trim();
 
-    const newEl = wrapper.firstElementChild;
+    // Clone all child nodes
+    const fragment = document.createDocumentFragment();
+    Array.from(template.content.childNodes).forEach((node) => {
+        fragment.appendChild(node.cloneNode(true));
+    });
 
-    if (newEl === null) {
-        throw new Error(`No valid HTML returned from: ${componentLocation}`);
-    }
+    // Replace the element with the fragment (may contain multiple elements)
+    elToReplace.replaceWith(fragment);
 
-    elToReplace.replaceWith(newEl);
 }
+
 
 export function getElement<T extends HTMLElement>(
     elSelector: string,

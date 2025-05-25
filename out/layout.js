@@ -1,9 +1,8 @@
 import { navbarMain } from "./navbar/navbar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
 //to do
-//ensure navbar resize...
-//template for nav elements - submenu...
-//dummy logic for users first page
+//keep things simple front end only
+//implement notes e.g stuff
 async function layout() {
     //load content first
     await Promise.all([0, 1, 2, 4].map(async (each) => {

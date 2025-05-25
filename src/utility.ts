@@ -26,29 +26,44 @@ export async function loadComponent({ componentLocation, elSelector }: { compone
     elToReplace.replaceWith(newEl);
 }
 
-export function getElement<T extends Element>(
+export function getElement<T extends HTMLElement>(
     elSelector: string,
 ): T;
-export function getElement<T extends Element>(
+export function getElement<T extends HTMLElement>(
     elSelector: string,
-    option: "all"
+    option: "all",
 ): NodeListOf<T>;
-export function getElement<T extends Element>(
+export function getElement<T extends HTMLElement>(
     elSelector: string,
-    option?: "all" | undefined
+    option: undefined,
+    searchElement: Document | HTMLElement
+): T;
+export function getElement<T extends HTMLElement>(
+    elSelector: string,
+    option: "all",
+    searchElement: Document | HTMLElement
+): NodeListOf<T>;
+export function getElement<T extends HTMLElement>(
+    elSelector: string,
+    option?: "all",
+    searchElement?: Document | HTMLElement
 ): T | NodeListOf<T> {
-    const seenEl =
-        option === undefined
-            ? document.querySelector(elSelector)
-            : document.querySelectorAll(elSelector);
+    const base = searchElement !== undefined ? searchElement : document;
 
-    if (seenEl === null) {
-        throw new Error(`Element not found for selector: ${elSelector}`);
+    if (option === "all") {
+        const result = base.querySelectorAll<T>(elSelector);
+
+        return result;
+
+    } else {
+        const result = base.querySelector<T>(elSelector);
+
+        if (result === null) {
+            throw new Error(`Element not found for selector: ${elSelector}`);
+        }
+
+        return result;
     }
-
-    return option === undefined
-        ? (seenEl as T)
-        : (seenEl as NodeListOf<T>);
 }
 
 export function validateTypeOption<T>(arrayOptions: T[], option: string): T {
@@ -63,4 +78,12 @@ export function formatDateCustom(date: Date): string {
         day: "numeric",
         year: "numeric",
     }).replace(",", ""); // Remove default comma between day and year
+}
+
+export function incrementDate(seenDate: Date, incrementer: number) {
+    const usedDate = new Date(seenDate)
+
+    usedDate.setDate(usedDate.getDate() + incrementer);
+
+    return usedDate
 }

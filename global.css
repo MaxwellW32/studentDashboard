@@ -21,7 +21,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    /* border: 1px solid red !important; */
+    border: 1px solid red !important;
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
@@ -43,6 +43,7 @@
     /* zindex: 1, 10, 100, 1000, 9999 */
 
     /* sizes */
+    --sizeS: .7rem;
     --sizeR: 1rem;
 
     /* font sizes */
@@ -56,18 +57,16 @@
     --paddingR: 1rem;
 
     /* gap */
+    --gapES: .3rem;
     --gapS: .5rem;
     --gapR: 1rem;
 
     /* border radius */
     --borderRadiusES: .2rem;
+    --borderRadiusS: .4rem;
     --borderRadiusR: 1rem;
     --borderRadiusL: 2rem;
     --borderRadiusEL: 50%;
-
-    --sas: 800px;
-
-
 }
 
 head,
@@ -132,6 +131,11 @@ h2 {
 
 h3 {
     /* sub headings */
+    font-weight: 400;
+    font-family: roboto;
+    color: var(--shade2) !important;
+    font-size: var(--fontSizeR);
+    text-transform: capitalize;
 }
 
 h4 {
@@ -140,6 +144,9 @@ h4 {
     font-size: var(--fontSizeS);
 }
 
+p {
+    display: block;
+}
 
 
 
@@ -191,7 +198,7 @@ h4 {
 /* custom classes */
 .button1 {
     background-color: var(--color2);
-    border-radius: var(--borderRadiusES);
+    border-radius: var(--borderRadiusS);
     padding: var(--paddingES);
 }
 
@@ -479,6 +486,18 @@ h4 {
     border: 3px solid var(--bg1);
 }
 
+.callenderSmallContTopCont {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.callenderSmallContContent {
+    display: grid;
+    align-content: flex-start;
+    gap: var(--gapS);
+}
+
 .calenderCont {
     display: grid;
     align-content: flex-start;
@@ -501,8 +520,10 @@ h4 {
 .calenderCell {
     display: grid;
     align-content: flex-start;
+    gap: var(--gapS);
     aspect-ratio: 1/1.5;
     max-height: 200px;
+    overflow: auto;
     border-top: 3px solid var(--bg1);
     border-left: 3px solid var(--bg1);
     padding: var(--paddingR);
@@ -514,3 +535,15 @@ h4 {
 }
 
 .calenderTableData {}
+
+.calenderListItem {}
+
+.calenderListItem[data-full-size="false"] .calenderShowMoretoggle {
+    display: none !important;
+}
+
+.calenderListItem[data-full-size="false"] .listItemTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -19,7 +19,7 @@ export async function loadComponent({ componentLocation, elSelector }) {
     elToReplace.replaceWith(newEl);
 }
 export function getElement(elSelector, option, searchElement) {
-    const base = searchElement !== undefined ? searchElement : document;
+    const base = searchElement ?? document;
     if (option === "all") {
         const result = base.querySelectorAll(elSelector);
         return result;
@@ -43,9 +43,4 @@ export function formatDateCustom(date) {
         day: "numeric",
         year: "numeric",
     }).replace(",", ""); // Remove default comma between day and year
-}
-export function incrementDate(seenDate, incrementer) {
-    const usedDate = new Date(seenDate);
-    usedDate.setDate(usedDate.getDate() + incrementer);
-    return usedDate;
 }

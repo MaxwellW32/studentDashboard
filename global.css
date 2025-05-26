@@ -56,6 +56,9 @@
     --paddingS: .5rem;
     --paddingR: 1rem;
 
+    /* margin */
+    --marginR: 1rem;
+
     /* gap */
     --gapES: .3rem;
     --gapS: .5rem;
@@ -227,8 +230,8 @@ p {
 .allCont {
     display: grid;
     align-content: flex-start;
-    gap: var(--gapR);
-    padding: var(--paddingR);
+    overflow: auto;
+    padding: 0 var(--paddingR) var(--paddingR) var(--paddingR);
     grid-template-columns: 1fr;
     background-color: var(--bg1);
 }
@@ -423,6 +426,9 @@ p {
 
 
 
+
+
+
 /* navbar */
 .navbar {
     background-color: var(--bg1);
@@ -430,6 +436,10 @@ p {
     justify-content: space-between;
     align-items: center;
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-block: var(--paddingR);
 }
 
 .navMenu {
@@ -447,6 +457,29 @@ p {
 .navMoreOptionsCont {
     display: flex;
     gap: var(--gapS);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+.footer {
+    margin-top: vaR(--marginR);
 }
 
 
@@ -544,6 +577,7 @@ p {
     display: grid;
     align-content: flex-start;
     overflow: auto;
+    min-width: 1000px;
 }
 
 .calenderTopCont {
@@ -624,10 +658,6 @@ p {
     aspect-ratio: initial;
 }
 
-.calenderTableData {}
-
-.calenderListItem {}
-
 .calenderListItem[data-full-size="false"] .calenderShowMoretoggle {
     display: none !important;
 }
@@ -636,4 +666,29 @@ p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* attendance */
+.attendance {
+    display: grid;
+    align-content: flex-start;
+    gap: var(--gapR);
 }

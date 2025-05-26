@@ -6,7 +6,7 @@ import { getComponentHTML, loadComponent } from "./utility.js";
 //use id's only for selections - use inline styles mostly - select classes
 async function layout() {
     //load content first
-    await Promise.all([0, 1, 2, 4].map(async (each) => {
+    await Promise.all([0, 1, 2, 3].map(async (each) => {
         if (each === 0) {
             //get head
             const seenHeadHtml = await getComponentHTML("../components/head/head.html");
@@ -22,7 +22,7 @@ async function layout() {
             //get sidebar
             await loadComponent({ componentLocation: "../components/sidebar/sidebar.html", elSelector: "#sidebarTemplate" });
         }
-        else if (each === 2) {
+        else if (each === 3) {
             //get footer
             await loadComponent({ componentLocation: "../components/footer/footer.html", elSelector: "#footerTemplate" });
         }

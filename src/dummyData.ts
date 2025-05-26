@@ -161,7 +161,7 @@ export const dummyData: dummyDataType = {
     agenda: [
         { text: "Prep science fair booth", bg: "var(--color1)" },
         { text: "Confirm staff meeting venue", bg: "var(--color2)" },
-        { text: "Order snacks for open day", bg: "var(--color5)" },
+        { text: "Order snacks for open day", bg: "var(--color4)" },
         { text: "Send reminder for exam schedule", bg: "var(--color2)" },
         { text: "Setup audio for choir performance", bg: "var(--color3)" },
     ],

@@ -1,14 +1,6 @@
 export async function getComponentHTML(componentLocation) {
-    const response = await fetch(componentLocation, {
-        headers: {},
-    });
+    const response = await fetch(componentLocation);
     const seenHtml = await response.text();
-    if (componentLocation === "../components/sidebar/sidebar.html") {
-        console.log(`$`, {
-            text: seenHtml
-        });
-        // console.log(`$seenHtml`, seenHtml);
-    }
     return seenHtml;
 }
 export async function loadComponent({ componentLocation, elSelector }) {

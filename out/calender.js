@@ -144,6 +144,8 @@ function calender() {
             //set html values for list item template
             listItem.style.background = `${eachListItem.bg}`;
             listItemTitle.innerText = `${eachListItem.text}`;
+            //set styles
+            listItemTitle.style.whiteSpace = "initial"; //this ensures the lists in agenda show the full title without showing other fields that are not used e.g description
             //add to calender list cont
             fragment.appendChild(seenListItemClone);
         });

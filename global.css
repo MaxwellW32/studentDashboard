@@ -247,6 +247,17 @@ p {
     border-radius: var(--borderRadiusES);
 }
 
+.svgImg {
+    cursor: pointer;
+    width: 1rem !important;
+    height: 1rem !important;
+    object-fit: contain;
+}
+
+.mobileViewToggle {
+    display: none;
+}
+
 .noScrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -255,6 +266,10 @@ p {
 @media only screen and (max-width: 800px) {
     body {
         grid-template-columns: 1fr;
+    }
+
+    .mobileViewToggle {
+        display: initial;
     }
 }
 
@@ -316,6 +331,7 @@ p {
     padding: var(--paddingR);
     display: grid;
     align-content: flex-start;
+    grid-template-rows: auto 1fr;
     overflow: auto;
 }
 
@@ -329,6 +345,7 @@ p {
     display: grid;
     align-content: flex-start;
     gap: var(--gapS);
+    overflow: auto;
 }
 
 .sidebarMenu>h3 {
@@ -371,8 +388,6 @@ p {
 }
 
 .sidebarMenuItemTopCont img {
-    object-fit: contain;
-    display: block;
     aspect-ratio: 1/1;
     width: 15px;
 }
@@ -442,8 +457,6 @@ p {
         top: 0;
         left: 0;
         height: 100%;
-        width: 100%;
-        /* display: none; */
     }
 
     .navMoreOptionsCont {

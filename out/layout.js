@@ -1,11 +1,9 @@
 import { navbarMain } from "./navbar/navbar.js";
+import { sidebarMain } from "./sidebar/sidebar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
 //to do
-//build sidebar - simple text logo
-//make template 
-//make object for nav - svg, title, link, subMenu
-//fix agenda view
 //animate display none - proper color handling
+//use id's only for selections - use inline styles mostly - select classes
 async function layout() {
     //load content first
     await Promise.all([0, 1, 2, 4].map(async (each) => {
@@ -31,5 +29,7 @@ async function layout() {
     }));
     //run nav ts
     navbarMain();
+    //run sidebar ts
+    sidebarMain();
 }
 layout();

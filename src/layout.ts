@@ -6,6 +6,7 @@ import { getComponentHTML, loadComponent } from "./utility.js";
 //make template 
 //make object for nav - svg, title, link, subMenu
 //fix agenda view
+//animate display none - proper color handling
 
 async function layout() {
     //load content first

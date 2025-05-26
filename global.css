@@ -247,6 +247,10 @@ p {
     border-radius: var(--borderRadiusES);
 }
 
+.noScrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 /* mobile */
 @media only screen and (max-width: 800px) {
     body {
@@ -312,6 +316,7 @@ p {
     padding: var(--paddingR);
     display: grid;
     align-content: flex-start;
+    overflow: auto;
 }
 
 .sidebarIconCont {
@@ -438,7 +443,7 @@ p {
         left: 0;
         height: 100%;
         width: 100%;
-        display: none;
+        /* display: none; */
     }
 
     .navMoreOptionsCont {

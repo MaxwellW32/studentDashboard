@@ -1,5 +1,5 @@
-import { navbarMain } from "./navbar/navbar.js";
-import { sidebarMain } from "./sidebar/sidebar.js";
+import { navbarMain } from "./components/navbar/navbar.js";
+import { sidebarMain } from "./components/sidebar/sidebar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
 //to do
 //animate display none - proper color handling

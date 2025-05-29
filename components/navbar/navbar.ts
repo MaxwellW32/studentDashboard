@@ -1,4 +1,4 @@
-import { getElement } from "../utility.js";
+import { getElement } from "../../utility.js";
 
 export function navbarMain() {
     let navMoreOptionsShowing = false

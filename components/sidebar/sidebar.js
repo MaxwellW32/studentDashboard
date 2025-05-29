@@ -1,4 +1,4 @@
-import { getElement } from "../utility.js";
+import { getElement } from "../../utility.js";
 export function sidebarMain() {
     let sidebarShowing = window.innerWidth > 800;
     const sidebarCloseBttn = getElement("#sidebarCloseBttn");

@@ -1,5 +1,5 @@
-import { dummyData } from "./dummyData.js";
-import { formatDateCustom, getElement, incrementDate, validateTypeOption } from "./utility.js";
+import { dummyData } from "../dummyData.js";
+import { formatDateCustom, getElement, incrementDate, validateTypeOption } from "../utility.js";
 //dummy data for calender items
 const calenderDummyListItems = Object.fromEntries(Object.entries(dummyData.calenderListItems).map((eachEntry, eachEntryIndex) => {
     let eachCalenderKey = eachEntry[0];

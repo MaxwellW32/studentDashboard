@@ -3,6 +3,18 @@ import { sidebarMain } from "./components/sidebar/sidebar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
 
 //to do
+//make 15 students with names and dates, attended or not/null...
+//repeatable dropdown class to display top...
+//get the calender function - handle that logic
+//then loop over a specific 1-2 week period
+//multiple pages to go over multiple students
+//functions to handle logic, functions to populate html
+//
+//
+//
+//
+//
+
 //animate display none - proper color handling
 //use id's only for selections - use inline styles mostly - select classes
 

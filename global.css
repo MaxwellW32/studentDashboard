@@ -21,7 +21,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    /* border: 1px solid red !important; */
+    border: 1px solid red !important;
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
@@ -73,7 +73,8 @@
 }
 
 head,
-script {
+script,
+style {
     display: none;
 }
 
@@ -252,8 +253,8 @@ p {
 
 .svgImg {
     cursor: pointer;
-    width: 1rem !important;
-    height: 1rem !important;
+    width: var(--svgImgSize, 1rem) !important;
+    height: var(--svgImgSize, 1rem) !important;
     object-fit: contain;
 }
 
@@ -263,6 +264,10 @@ p {
 
 .noScrollbar::-webkit-scrollbar {
     display: none;
+}
+
+.red {
+    background-color: red !important;
 }
 
 /* mobile */

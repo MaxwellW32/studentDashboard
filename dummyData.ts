@@ -11,10 +11,20 @@ export type agendaType = {
     text: string;
     bg: string;
 }
+export type studentAttendanceType = {
+    date: string | Date;
+    attended: boolean | null;
+}
+
+export type studentListType = {
+    name: string;
+    attendance: studentAttendanceType[];
+}
 
 type dummyDataType = {
-    calenderListItems: calenderListItemsType;
-    agenda: agendaType[];
+    calenderListItems: calenderListItemsType,
+    agenda: agendaType[],
+    studentsList: studentListType[]
 }
 
 export const dummyData: dummyDataType = {
@@ -165,4 +175,160 @@ export const dummyData: dummyDataType = {
         { text: "Send reminder for exam schedule", bg: "var(--color2)" },
         { text: "Setup audio for choir performance", bg: "var(--color3)" },
     ],
+    studentsList: [
+        {
+            name: "lucas johnson",
+            attendance: [
+                {//mm/dd/yyyy
+                    date: "5/01/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/02/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/03/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/04/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/05/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/06/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/07/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/08/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/09/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/10/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/11/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/12/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/13/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/14/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/15/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/16/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/17/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/18/2025, 1:00:00 PM",
+                    attended: null
+                },
+            ]
+        },
+        {
+            name: "Emily Peterson",
+            attendance: [
+                {
+                    date: "5/01/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/02/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/03/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/04/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/05/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/06/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/07/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/08/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/09/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/10/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/11/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/12/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/13/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/14/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/15/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/16/2025, 1:00:00 PM",
+                    attended: true
+                },
+                {
+                    date: "5/17/2025, 1:00:00 PM",
+                    attended: null
+                },
+                {
+                    date: "5/18/2025, 1:00:00 PM",
+                    attended: null
+                },
+            ]
+        },
+    ]
 };

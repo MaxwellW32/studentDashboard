@@ -36,17 +36,17 @@ export function getElement<T extends HTMLElement>(
 export function getElement<T extends HTMLElement>(
     elSelector: string,
     option: undefined,
-    searchElement: Document | HTMLElement
+    searchElement: Document | HTMLElement | ShadowRoot
 ): T;
 export function getElement<T extends HTMLElement>(
     elSelector: string,
     option: "all",
-    searchElement: Document | HTMLElement
+    searchElement: Document | HTMLElement | ShadowRoot
 ): NodeListOf<T>;
 export function getElement<T extends HTMLElement>(
     elSelector: string,
     option?: "all",
-    searchElement?: Document | HTMLElement
+    searchElement?: Document | HTMLElement | ShadowRoot
 ): T | NodeListOf<T> {
     const base = searchElement !== undefined ? searchElement : document;
 
@@ -86,4 +86,39 @@ export function incrementDate(seenDate: Date, incrementer: number) {
     usedDate.setDate(usedDate.getDate() + incrementer);
 
     return usedDate
+}
+
+export function generateCalendarData(year: number, month: number) {
+    const firstDay = new Date(year, month, 1); // month is 0-indexed
+    const lastDay = new Date(year, month + 1, 0); // day 0 of next month gives last day of this month
+
+    const firstWeekDay = firstDay.getDay(); // 0 (Sun) to 6 (Sat)
+    const daysInMonth = lastDay.getDate(); // 28-31
+
+    const calendar = [];
+    let week = [];
+
+    // Fill in the blanks for days before the 1st
+    for (let i = 0; i < firstWeekDay; i++) {
+        week.push(null); // null means empty cell
+    }
+
+    // Fill in the actual days
+    for (let day = 1; day <= daysInMonth; day++) {
+        week.push(day);
+
+        if (week.length === 7) {
+            calendar.push(week);
+
+            week = [];
+        }
+    }
+
+    // Fill the last week with nulls if needed
+    if (week.length > 0) {
+        while (week.length < 7) week.push(null);
+        calendar.push(week);
+    }
+
+    return calendar; // array of weeks, each week is an array of 7 elements
 }

@@ -21,7 +21,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    border: 1px solid red !important;
+    /* border: 1px solid red !important; */
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
@@ -30,6 +30,8 @@
     --color2: #cecffd;
     --color3: #fff3fd;
     --color4: #fdf6d9;
+    --color5: #ff0000;
+    --color6: #46bed8;
 
     --bg1: #f7f8fa;
     --bg2: #ffffff;
@@ -209,6 +211,20 @@ p {
     background-color: var(--color2);
     border-radius: var(--borderRadiusS);
     padding: var(--paddingES);
+}
+
+.button2 {
+    background-color: var(--bg2);
+    border-radius: var(--borderRadiusS);
+    border: 1px solid var(--shade1);
+    padding: var(--paddingES) var(--paddingR);
+    text-transform: capitalize;
+    transition: background-color 400ms;
+    cursor: pointer;
+}
+
+.button2:hover {
+    background-color: var(--bg1);
 }
 
 .input1,
@@ -445,6 +461,7 @@ p {
     top: 0;
     left: 0;
     padding-block: var(--paddingR);
+    z-index: 999;
 }
 
 .navMenu {
@@ -670,29 +687,4 @@ p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* attendance */
-.attendance {
-    display: grid;
-    align-content: flex-start;
-    gap: var(--gapR);
 }

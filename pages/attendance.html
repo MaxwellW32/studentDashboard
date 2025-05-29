@@ -6,6 +6,47 @@
     <script type="module" defer src="../layout.js"></script>
 
     <script type="module" defer src="attendance.js"></script>
+
+    <style>
+        .attendance {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            z-index: 0;
+        }
+
+        #attendanceTable {
+            display: grid;
+            align-content: flex-start;
+            text-transform: capitalize;
+            border-top: 3px solid var(--bg1);
+            border-left: 3px solid var(--bg1);
+            border-radius: var(--borderRadiusR);
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        #attendanceTable>tr {
+            display: flex;
+        }
+
+        #attendanceTable td {
+            flex: 1 1 auto;
+            width: 50px;
+            padding: var(--paddingS);
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            border-bottom: 3px solid var(--bg1);
+            border-right: 3px solid var(--bg1);
+            position: relative;
+        }
+
+        #attendanceTable td.larger {
+            width: 150px;
+            justify-items: flex-start;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,101 +57,137 @@
 
         <main class="main">
             <div class="attendance">
-                <!-- top section -->
-                <div style="display: flex;align-items: center; justify-content: space-between;">
-                    <h2>attendance</h2>
+                <div style="display: grid; align-content: flex-start; overflow: auto;">
+                    <!-- top section -->
+                    <div
+                        style="display: grid;align-content: flex-start; grid-template-columns: 1fr auto; align-items: center; gap: var(--gapR);">
+                        <h2>attendance</h2>
 
-                    <div style="display: flex;align-items: center; gap: var(--gapR);">
-                        <template id="select-element-template">
-                            <style>
-                                .selectionContTop {
-                                    padding: var(--paddingS);
-                                    display: flex;
-                                    align-items: center;
-                                    gap: var(--gapS);
-                                    background: var(--bg1);
-                                    border: 1px solid var(--bg1);
-                                    border-radius: var(--borderRadiusS);
-                                }
+                        <div style="display: flex; align-items: center; gap: var(--gapR);">
+                            <template id="select-element-template">
+                                <style>
+                                    .selectionContTop {
+                                        padding: var(--paddingS);
+                                        display: flex;
+                                        align-items: center;
+                                        gap: var(--gapS);
+                                        background: var(--bg1);
+                                        border: 1px solid var(--bg1);
+                                        border-radius: var(--borderRadiusS);
+                                    }
 
-                                .selectionContTop:hover {
-                                    background: var(--bg2);
-                                }
+                                    .selectionContTop:hover {
+                                        background: var(--bg2);
+                                    }
 
-                                .selectionContMenu {
-                                    position: absolute;
-                                    top: 100%;
-                                    left: 0;
-                                    background: var(--bg2);
-                                    border: 1px solid var(--bg1);
-                                    border-radius: var(--borderRadiusS);
-                                    width: 100%;
-                                    display: none;
-                                    z-index: 10;
-                                }
+                                    .selectionContMenu {
+                                        position: absolute;
+                                        top: 100%;
+                                        left: 0;
+                                        background: var(--bg2);
+                                        border: 1px solid var(--bg1);
+                                        border-radius: var(--borderRadiusS);
+                                        width: 100%;
+                                        display: none;
+                                        z-index: 10;
+                                    }
 
-                                .selectionContMenu.visible {
-                                    display: grid;
-                                    align-content: flex-start;
-                                }
+                                    .selectionContMenu.visible {
+                                        display: grid;
+                                        align-content: flex-start;
+                                    }
 
-                                .selectionContMenu div {
-                                    display: grid;
-                                    align-content: flex-start;
-                                    padding: var(--paddingS);
-                                    cursor: pointer;
-                                }
+                                    .selectionContMenu div {
+                                        display: grid;
+                                        align-content: flex-start;
+                                        padding: var(--paddingS);
+                                        cursor: pointer;
+                                    }
 
-                                .selectionContMenu div:hover {
-                                    background: var(--bg1);
-                                }
-                            </style>
+                                    .selectionContMenu div:hover {
+                                        background: var(--bg1);
+                                    }
+                                </style>
 
-                            <div style="position: relative; width: max-content; cursor: pointer; user-select: none;">
-                                <div class="selectionContTop">
-                                    <div class="iconCont"></div>
+                                <div
+                                    style="position: relative; width: max-content; cursor: pointer; user-select: none;">
+                                    <div class="selectionContTop">
+                                        <div class="iconCont"></div>
 
-                                    <p class="selectedOptionEl">Select option</p>
+                                        <p class="selectedOptionEl">Select option</p>
 
-                                    <img alt="iconImg" src="../public/chevron.svg" class="svgImg"
-                                        style="rotate: 90deg; --svgImgSize: var(--sizeS)" />
+                                        <img alt="iconImg" src="../public/chevron.svg" class="svgImg"
+                                            style="rotate: 90deg; --svgImgSize: var(--sizeS)" />
+                                    </div>
+
+                                    <div class="selectionContMenu">
+                                    </div>
                                 </div>
+                            </template>
 
-                                <div class="selectionContMenu">
-                                </div>
+                            <custom-select id="dateSelection" options="||datePicker||" value="">
+                                <svg style="display: none;" slot="my-svg" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path
+                                        d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z" />
+                                </svg>
+
+                                <input class="dateSelectionInput" type="date" style="display: none;" />
+                            </custom-select>
+
+                            <custom-select id="weekSelection" options="week 1-2, week 2-3, week 3-4, week 4-5, week 5-6"
+                                value="week 1-2"></custom-select>
+
+                            <custom-select id="classSelection" options="class 11A, class 11B, class 11C"
+                                value="class 11A"></custom-select>
+                        </div>
+                    </div>
+
+                    <!-- attendance calender area -->
+                    <table id="attendanceTable">
+
+                    </table>
+                </div>
+
+                <div
+                    style="display: grid; align-content: flex-start; grid-template-columns: auto 1fr auto; align-items: center;">
+                    <!-- <div style="display: grid;align-content: flex-start; gap: var(--gapR);">
+                        <div
+                            style="width: .5rem; aspect-ratio: 1/1; padding: .5rem; background-color: var(--color1); border-radius: var(--borderRadiusL); position: relative;">
+                            <p
+                                style="position: absolute; top: 50%; left:50%; translate: -50% -50%; color: var(--shade3);">
+                                ✓</p>
+                        </div>
+
+                        <div
+                            style="width: .5rem; aspect-ratio: 1/1; padding: .5rem; background-color: var(--color5); border-radius: var(--borderRadiusL); position: relative;">
+                            <p
+                                style="position: absolute; top: 50%; left:50%; translate: -50% -50%; color: var(--shade3);">
+                                x</p>
+                        </div>
+
+                        <div style="width: 3rem; height: 3rem;">
+                            <div style="width:100%;height: 100%; background-color: var(--bg1); position: relative;">
+                                <p
+                                    style="position: absolute; top: 50%; left:50%; translate: -50% -50%; color: var(--shade1);">
+                                    -</p>
                             </div>
-                        </template>
+                        </div>
 
-                        <custom-select id="dateSelection" options="||datePicker||" value="">
-                            <svg style="display: none;" slot="my-svg" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512">
-                                <path
-                                    d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z" />
-                            </svg>
+                    </div> -->
 
-                            <input class="dateSelectionInput" type="date" style="display: none;" />
-                        </custom-select>
+                    <button class="button2">previous</button>
 
-                        <custom-select id="weekSelection" options="week 1-2, week 2-3, week 3-4, week 5"
-                            value="week 1-2"></custom-select>
+                    <ul style="display: flex; justify-content: center; gap: var(--gapS); color: var(--shade1);">
+                        <li style="color: var(--shade2);">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>...</li>
+                        <li>17</li>
+                    </ul>
 
-                        <custom-select id="classSelection" options="class 11A, class 11B, class 11C"
-                            value="class 11A"></custom-select>
-                    </div>
-                </div>
-
-                <!-- attendance calender area -->
-                <div>
-                </div>
-
-                <div>
-                    <button>prev</button>
-
-                    <div>
-                        <p>1,2,3,4</p>
-                    </div>
-
-                    <button>next</button>
+                    <button class="button2">next</button>
                 </div>
             </div>
         </main>

@@ -278,8 +278,6 @@ function generateCalendar(year: number, month: number) {
 
         table.appendChild(tr);
     }
-
-
 }
 
 function getListItemsForDate(date: Date, fullSize: boolean = false): DocumentFragment | undefined {//return the html for all list items

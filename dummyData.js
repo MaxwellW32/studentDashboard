@@ -149,157 +149,223 @@ export const dummyData = {
     studentsList: [
         {
             name: "lucas johnson",
-            attendance: [
-                {
-                    date: "5/01/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/02/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/03/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/04/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/05/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/06/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/07/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/08/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/09/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/10/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/11/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/12/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/13/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/14/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/15/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/16/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/17/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/18/2025, 1:00:00 PM",
-                    attended: null
-                },
-            ]
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
         },
         {
             name: "Emily Peterson",
-            attendance: [
-                {
-                    date: "5/01/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/02/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/03/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/04/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/05/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/06/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/07/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/08/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/09/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/10/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/11/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/12/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/13/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/14/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/15/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/16/2025, 1:00:00 PM",
-                    attended: true
-                },
-                {
-                    date: "5/17/2025, 1:00:00 PM",
-                    attended: null
-                },
-                {
-                    date: "5/18/2025, 1:00:00 PM",
-                    attended: null
-                },
-            ]
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Michael Brown",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Hannah White",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: false },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Oliver Martinez",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Isabelle Garcia",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: false },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Ethan Lee",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Sophia Wilson",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Aiden taylor",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
+        },
+        {
+            name: "Ava Smith",
+            attendance: {
+                "Fri May 02 2025": { attended: true },
+                "Sat May 03 2025": { attended: null },
+                "Sun May 04 2025": { attended: null },
+                "Mon May 05 2025": { attended: true },
+                "Tue May 06 2025": { attended: true },
+                "Wed May 07 2025": { attended: true },
+                "Thu May 08 2025": { attended: true },
+                "Fri May 09 2025": { attended: true },
+                "Sat May 10 2025": { attended: null },
+                "Sun May 11 2025": { attended: null },
+                "Mon May 12 2025": { attended: true },
+                "Tue May 13 2025": { attended: true },
+                "Wed May 14 2025": { attended: true },
+                "Thu May 15 2025": { attended: true },
+                "Fri May 16 2025": { attended: true },
+                "Sat May 17 2025": { attended: null },
+                "Sun May 18 2025": { attended: null }
+            },
         },
     ]
 };

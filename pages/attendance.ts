@@ -110,9 +110,14 @@ function attendance() {
 
                     //check if dates seen for student
                     const seenCalenderDate = new Date(activeDate.getFullYear(), activeDate.getMonth(), eachDay)
-                    const seenAttendanceOnDate: studentAttendanceType["key"] | undefined = eachStudent.attendance[seenCalenderDate.toDateString()]
+                    let seenStudentAttendance: studentAttendanceType["key"] | undefined = eachStudent.attendance[seenCalenderDate.toDateString()]
+                    if (seenStudentAttendance === undefined) {
+                        seenStudentAttendance = {
+                            attended: null
+                        }
+                    }
 
-                    const studentTd = makeSpeciicTd(seenAttendanceOnDate !== undefined ? seenAttendanceOnDate.attended : null)
+                    const studentTd = makeSpeciicTd(seenStudentAttendance !== undefined ? seenStudentAttendance.attended : null)
 
                     let myTimeout: number | undefined = undefined;
 
@@ -122,16 +127,16 @@ function attendance() {
                             clearTimeout(myTimeout);
                             myTimeout = undefined;
 
-                            seenAttendanceOnDate.attended = null
-                            handleChangeFromClick(seenAttendanceOnDate.attended)
+                            seenStudentAttendance.attended = null
+                            handleChangeFromClick(seenStudentAttendance.attended)
 
                         } else {
                             //single click
                             myTimeout = setTimeout(() => {
                                 myTimeout = undefined;
 
-                                seenAttendanceOnDate.attended = seenAttendanceOnDate.attended === true ? false : true
-                                handleChangeFromClick(seenAttendanceOnDate.attended)
+                                seenStudentAttendance.attended = seenStudentAttendance.attended === true ? false : true
+                                handleChangeFromClick(seenStudentAttendance.attended)
                             }, 300);
                         }
 

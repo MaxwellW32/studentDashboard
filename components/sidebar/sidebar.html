@@ -1,4 +1,94 @@
-<div id="sidebar" class="sidebar">
+<div id="sidebar" class="sidebar"
+    style=" width: 200px; z-index: 1000; background-color: var(--bg2); padding: var(--paddingR); display: grid; align-content: flex-start; grid-template-rows: auto 1fr; overflow: auto;">
+    <style>
+        .sidebarIconCont {
+            display: grid;
+            align-content: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .sidebarMenu {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+            overflow: auto;
+        }
+
+        .sidebarMenu>h3 {
+            text-transform: uppercase;
+            font-size: var(--fontSizeS);
+            padding: var(--paddingS) var(--paddingR);
+        }
+
+        .sidebarMenuItem {
+            display: grid;
+            align-content: flex-start;
+            text-transform: capitalize;
+            font-size: var(--fontSizeS);
+        }
+
+        .sidebarMenuItem:hover .sidebarMenuItemChevron {
+            rotate: 90deg;
+        }
+
+        .sidebarMenuItem>svg {
+            fill: var(--shade1)
+        }
+
+        .sidebarMenuItem:focus .sidebarSubMenu,
+        .sidebarMenuItem:hover .sidebarSubMenu {
+            display: grid;
+        }
+
+        .sidebarMenuItemTopCont {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: var(--paddingS) var(--paddingR);
+            gap: var(--gapR);
+            border-radius: var(--borderRadiusS);
+        }
+
+        .sidebarMenuItemTopCont:hover {
+            background-color: var(--color1);
+        }
+
+        .sidebarMenuItemTopCont img {
+            aspect-ratio: 1/1;
+            width: 15px;
+        }
+
+        .sidebarMenuItemChevron {
+            transition: rotate 400ms;
+        }
+
+        .sidebarMenuItem:not(:has(.sidebarSubMenu)) .sidebarMenuItemChevron {
+            /* chevron */
+            display: none;
+        }
+
+        .sidebarSubMenu {
+            display: none;
+            align-content: flex-start;
+            gap: var(--gapS);
+            padding: var(--paddingR) 0 var(--paddingR) var(--paddingR);
+            background-color: var(--bg2);
+        }
+
+        .sidebarSubMenu>.sidebarMenuItem {
+            border-left: 3px solid vaR(--bg1);
+            border-radius: 0px;
+        }
+
+        .sidebarSubMenu>.sidebarMenuItem:hover {
+            border-left: 3px solid vaR(--color1);
+        }
+
+        .sidebarSubMenu .sidebarMenuItemTopCont:hover {
+            background-color: initial;
+        }
+    </style>
+
     <div class="sidebarIconCont">
         <button id="sidebarCloseBttn" class="mobileViewToggle" style="justify-self: flex-end;">
             <img src="../../public/close.svg" class="svgImg" />
@@ -83,17 +173,30 @@
 
             <ul class="sidebarSubMenu">
                 <li class="sidebarMenuItem">
-                    <a href="../pages/index.html">sub menu 1</a>
+                    <div class="sidebarMenuItemTopCont">
+                        <div>
+                        </div>
+
+                        <a href="../pages/feeCollection.html">fees collection</a>
+
+                        <div class="sidebarMenuItemChevron">
+                            <img alt="iconImg" src="../../public/chevron.svg" style="width: 10px;" />
+                        </div>
+                    </div>
                 </li>
 
                 <li class="sidebarMenuItem">
-                    <a href="../pages/index.html">sub menu 2</a>
-                </li>
+                    <div class="sidebarMenuItemTopCont">
+                        <div>
+                        </div>
 
-                <li class="sidebarMenuItem">
-                    <a href="../pages/index.html">sub menu 3</a>
-                </li>
+                        <a href="../pages/index.html">school expenses</a>
 
+                        <div class="sidebarMenuItemChevron">
+                            <img alt="iconImg" src="../../public/chevron.svg" style="width: 10px;" />
+                        </div>
+                    </div>
+                </li>
             </ul>
         </li>
 

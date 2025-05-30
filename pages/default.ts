@@ -1,0 +1,3 @@
+function defaultFunc() {
+}
+defaultFunc()

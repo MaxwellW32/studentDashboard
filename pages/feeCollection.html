@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../global.css" />
+    <script type="module" defer src="../layout.js"></script>
+
+    <script type="module" defer src="feeCollection.js"></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="sidebarTemplate"></div>
+
+    <div class="allCont">
+        <div id="navTemplate"></div>
+
+        <main class="main">
+            <div style="display: grid; align-content: flex-start;">
+                <div style="display: flex; flex-wrap: wrap;  gap: var(--gapR)">
+                    <div
+                        style="flex: 2 1 400px; display: grid; align-content: flex-start; grid-template-rows: auto 1fr;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <h2>Fees Collection</h2>
+
+                            <div>...</div>
+                        </div>
+
+                        <canvas id="feesChart"></canvas>
+                    </div>
+
+                    <template id="feeCollectionTileTemplate">
+                        <div class="feeCollectionTile"
+                            style=" display: grid; align-content:flex-start; padding: var(--paddingR); background-color: var(--color1); border-radius: var(--borderRadiusR);">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <img alt="iconImg" src="../public/list.svg" class="svgImg" />
+
+                                <button>15%</button>
+                            </div>
+
+                            <p class="feeCollectionTileAmt largeText">$126,450</p>
+
+                            <p class="feeCollectionTileAmtP">total amount</p>
+                        </div>
+                    </template>
+
+                    <div id="feeCollectionTileCont"
+                        style="flex: 1 1 400px; display: grid;  gap: var(--gapR); align-content: flex-start; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr))">
+                    </div>
+                </div>
+
+                <div style="display: grid; align-content: flex-start;">
+                    <div style="display: flex; align-items: center;">
+                        <h2>Fees Collection</h2>
+
+                        <div>
+                            <!-- middle menu -->
+                        </div>
+                    </div>
+
+                    <table id="feeCollectionTable">
+
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <div id="footerTemplate"></div>
+    </div>
+
+    <script type="module">
+        import {
+            Chart,
+            LineController,
+            LineElement,
+            PointElement,
+            LinearScale,
+            Title,
+            Tooltip,
+            CategoryScale
+        } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/+esm';
+
+        // Register chart components
+        Chart.register(
+            LineController,
+            LineElement,
+            PointElement,
+            LinearScale,
+            Title,
+            Tooltip,
+            CategoryScale
+        );
+
+        // Your fee data
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const fees = [2000, 3500, 4200, 3000, 4800, 5200, 6100, 5700, 6200, 5800, 6300, 7000];
+
+        const ctx = document.getElementById("feesChart");
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: "Monthly Fees",
+                    data: fees,
+                    borderColor: 'blue',
+                    backgroundColor: 'lightblue',
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: context => `Fee: $${context.parsed.y}`
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                    x: {
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

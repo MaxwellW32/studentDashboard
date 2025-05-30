@@ -6,6 +6,102 @@
     <script type="module" defer src="../layout.js"></script>
 
     <script type="module" defer src="calender.js"></script>
+
+    <style>
+        .calender {
+            display: grid;
+            align-content: flex-start;
+            overflow: auto;
+        }
+
+        .calenderTopCont {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dateSelectorCont {
+            display: flex;
+            align-content: flex-start;
+            background-color: var(--bg1);
+            padding: var(--paddingS);
+            border-radius: var(--borderRadiusES);
+        }
+
+        .dateSelectorOption {
+            cursor: pointer;
+        }
+
+        .dateSelectorOption[data-selected="true"] {
+            background-color: var(--color2);
+        }
+
+        .callenderSmallCont {
+            display: grid;
+            align-content: flex-start;
+            border-radius: var(--borderRadiusR);
+            padding: var(--paddingR);
+            border: 3px solid var(--bg1);
+        }
+
+        .callenderSmallContTopCont {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .callenderSmallContContent {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+        }
+
+        .calenderCont {
+            display: grid;
+            align-content: flex-start;
+        }
+
+        .calenderTable {
+            display: grid;
+            align-content: flex-start;
+            border-bottom: 3px solid var(--bg1);
+            border-right: 3px solid var(--bg1);
+            border-radius: var(--borderRadiusR);
+        }
+
+        .calenderTable>tr {
+            display: grid;
+            align-content: flex-start;
+            grid-template-columns: repeat(7, 1fr)
+        }
+
+        .calenderCell {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+            aspect-ratio: 1/1.5;
+            max-height: 200px;
+            overflow: auto;
+            border-top: 3px solid var(--bg1);
+            border-left: 3px solid var(--bg1);
+            padding: var(--paddingR);
+        }
+
+        .calenderTableHead {
+            background-color: var(--color1);
+            aspect-ratio: initial;
+        }
+
+        .calenderListItem[data-full-size="false"] .calenderShowMoretoggle {
+            display: none !important;
+        }
+
+        .calenderListItem[data-full-size="false"] .listItemTitle {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 </head>
 
 <body>

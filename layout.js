@@ -1,6 +1,11 @@
 import { navbarMain } from "./components/navbar/navbar.js";
 import { sidebarMain } from "./components/sidebar/sidebar.js";
 import { getComponentHTML, loadComponent } from "./utility.js";
+//notes
+//pages load their own ts, components need to have them run via function from whatever page called from
+//
+//
+//
 //to do
 //make 15 students with names and dates, attended or not/null...
 //repeatable dropdown class to display top...

@@ -1,0 +1,4 @@
+function defaultFunc() {
+}
+defaultFunc();
+export {};

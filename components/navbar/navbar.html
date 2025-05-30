@@ -1,4 +1,43 @@
-<nav class="navbar">
+<nav class="navbar"
+    style=" background-color: var(--bg1); display: flex; justify-content: space-between; align-items: center; white-space: nowrap; position: sticky; top: 0; left: 0; padding-block: var(--paddingR); z-index: 999;">
+    <style>
+        .navMenu {
+            display: flex;
+            gap: var(--gapR);
+            position: relative;
+            align-items: center;
+        }
+
+        .navMenuItem {
+            display: grid;
+            align-content: flex-start;
+        }
+
+        .navMoreOptionsCont {
+            display: flex;
+            gap: var(--gapS);
+        }
+
+        /* mobile */
+        @media only screen and (max-width: 800px) {
+            .sidebar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
+
+            .navMoreOptionsCont {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                padding: 1rem;
+                background-color: var(--bg2);
+            }
+        }
+    </style>
+
     <!-- search bar -->
     <div style="display: flex; gap: var(--gapS);">
         <button id="sidebarOpenBttn" class="mobileViewToggle">

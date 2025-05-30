@@ -10,8 +10,12 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@types/chart.js": "^2.9.41",
     "@types/chrome": "^0.0.315",
     "typescript": "^5.8.3"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "chart.js": "^4.4.9"
+  }
 }

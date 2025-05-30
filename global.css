@@ -1,18 +1,3 @@
-@font-face {
-    font-family: poppinsRegular;
-    src: url("fonts/Poppins-Regular.ttf");
-}
-
-@font-face {
-    font-family: roboto;
-    src: url("fonts/Roboto.ttf");
-}
-
-@font-face {
-    font-family: manrope;
-    src: url("fonts/Manrope.ttf");
-}
-
 *:not(svg, svg *) {
     all: unset;
 }
@@ -21,7 +6,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    /* border: 1px solid red !important; */
+    border: 1px solid red !important;
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
@@ -52,6 +37,7 @@
     --fontSizeES: .5rem;
     --fontSizeS: .7rem;
     --fontSizeR: 1rem;
+    --fontSizeEL: 2rem;
 
     /* padding */
     --paddingES: .2rem;
@@ -72,6 +58,21 @@
     --borderRadiusR: 1rem;
     --borderRadiusL: 2rem;
     --borderRadiusEL: 50%;
+}
+
+@font-face {
+    font-family: poppinsRegular;
+    src: url("fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("fonts/Roboto.ttf");
+}
+
+@font-face {
+    font-family: manrope;
+    src: url("fonts/Manrope.ttf");
 }
 
 head,
@@ -177,35 +178,6 @@ p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* custom classes */
 .button1 {
     background-color: var(--color2);
@@ -282,8 +254,8 @@ p {
     display: none;
 }
 
-.red {
-    background-color: red !important;
+.largeText {
+    font-size: var(--fontSizeEL);
 }
 
 /* mobile */
@@ -295,396 +267,4 @@ p {
     .mobileViewToggle {
         display: initial;
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* specific components */
-
-/* sidebar */
-.sidebar {
-    width: 200px;
-    z-index: 1000;
-    background-color: var(--bg2);
-    padding: var(--paddingR);
-    display: grid;
-    align-content: flex-start;
-    grid-template-rows: auto 1fr;
-    overflow: auto;
-}
-
-.sidebarIconCont {
-    display: grid;
-    align-content: flex-start;
-    margin-bottom: 2rem;
-}
-
-.sidebarMenu {
-    display: grid;
-    align-content: flex-start;
-    gap: var(--gapS);
-    overflow: auto;
-}
-
-.sidebarMenu>h3 {
-    text-transform: uppercase;
-    font-size: var(--fontSizeS);
-    padding: var(--paddingS) var(--paddingR);
-}
-
-.sidebarMenuItem {
-    display: grid;
-    align-content: flex-start;
-    padding: var(--paddingS) var(--paddingR);
-    border-radius: var(--borderRadiusS);
-    text-transform: capitalize;
-    font-size: var(--fontSizeS);
-}
-
-.sidebarMenuItem:hover {
-    background-color: var(--color1);
-}
-
-.sidebarMenuItem:hover .sidebarMenuItemChevron {
-    rotate: 90deg;
-}
-
-.sidebarMenuItem>svg {
-    fill: var(--shade1)
-}
-
-.sidebarMenuItem:focus .sidebarSubMenu,
-.sidebarMenuItem:hover .sidebarSubMenu {
-    display: grid;
-}
-
-.sidebarMenuItemTopCont {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: var(--gapR);
-}
-
-.sidebarMenuItemTopCont img {
-    aspect-ratio: 1/1;
-    width: 15px;
-}
-
-.sidebarMenuItemChevron {
-    transition: rotate 400ms;
-}
-
-.sidebarMenuItem:not(:has(.sidebarSubMenu)) .sidebarMenuItemChevron {
-    /* chevron */
-    display: none;
-}
-
-.sidebarSubMenu {
-    display: none;
-    align-content: flex-start;
-    gap: var(--gapS);
-    padding: var(--paddingR)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* navbar */
-.navbar {
-    background-color: var(--bg1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    white-space: nowrap;
-    position: sticky;
-    top: 0;
-    left: 0;
-    padding-block: var(--paddingR);
-    z-index: 999;
-}
-
-.navMenu {
-    display: flex;
-    gap: var(--gapR);
-    position: relative;
-    align-items: center;
-}
-
-.navMenuItem {
-    display: grid;
-    align-content: flex-start;
-}
-
-.navMoreOptionsCont {
-    display: flex;
-    gap: var(--gapS);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* footer */
-.footer {
-    margin-top: vaR(--marginR);
-}
-
-
-/* mobile */
-@media only screen and (max-width: 800px) {
-    .sidebar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-    }
-
-    .navMoreOptionsCont {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        padding: 1rem;
-        background-color: var(--bg2);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* pages */
-
-/* home */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* calender */
-.calender {
-    display: grid;
-    align-content: flex-start;
-    overflow: auto;
-}
-
-.calenderTopCont {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dateSelectorCont {
-    display: flex;
-    align-content: flex-start;
-    background-color: var(--bg1);
-    padding: var(--paddingS);
-    border-radius: var(--borderRadiusES);
-}
-
-.dateSelectorOption {
-    cursor: pointer;
-}
-
-.dateSelectorOption[data-selected="true"] {
-    background-color: var(--color2);
-}
-
-.callenderSmallCont {
-    display: grid;
-    align-content: flex-start;
-    border-radius: var(--borderRadiusR);
-    padding: var(--paddingR);
-    border: 3px solid var(--bg1);
-}
-
-.callenderSmallContTopCont {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.callenderSmallContContent {
-    display: grid;
-    align-content: flex-start;
-    gap: var(--gapS);
-}
-
-.calenderCont {
-    display: grid;
-    align-content: flex-start;
-}
-
-.calenderTable {
-    display: grid;
-    align-content: flex-start;
-    border-bottom: 3px solid var(--bg1);
-    border-right: 3px solid var(--bg1);
-    border-radius: var(--borderRadiusR);
-}
-
-.calenderTable>tr {
-    display: grid;
-    align-content: flex-start;
-    grid-template-columns: repeat(7, 1fr)
-}
-
-.calenderCell {
-    display: grid;
-    align-content: flex-start;
-    gap: var(--gapS);
-    aspect-ratio: 1/1.5;
-    max-height: 200px;
-    overflow: auto;
-    border-top: 3px solid var(--bg1);
-    border-left: 3px solid var(--bg1);
-    padding: var(--paddingR);
-}
-
-.calenderTableHead {
-    background-color: var(--color1);
-    aspect-ratio: initial;
-}
-
-.calenderListItem[data-full-size="false"] .calenderShowMoretoggle {
-    display: none !important;
-}
-
-.calenderListItem[data-full-size="false"] .listItemTitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

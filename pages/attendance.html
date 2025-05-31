@@ -64,67 +64,6 @@
                         <h2>attendance</h2>
 
                         <div style="display: flex; align-items: center; gap: var(--gapR);">
-                            <template id="select-element-template">
-                                <style>
-                                    .selectionContTop {
-                                        padding: var(--paddingS);
-                                        display: flex;
-                                        align-items: center;
-                                        gap: var(--gapS);
-                                        background: var(--bg1);
-                                        border: 1px solid var(--bg1);
-                                        border-radius: var(--borderRadiusS);
-                                    }
-
-                                    .selectionContTop:hover {
-                                        background: var(--bg2);
-                                    }
-
-                                    .selectionContMenu {
-                                        position: absolute;
-                                        top: 100%;
-                                        left: 0;
-                                        background: var(--bg2);
-                                        border: 1px solid var(--bg1);
-                                        border-radius: var(--borderRadiusS);
-                                        width: 100%;
-                                        display: none;
-                                        z-index: 10;
-                                    }
-
-                                    .selectionContMenu.visible {
-                                        display: grid;
-                                        align-content: flex-start;
-                                    }
-
-                                    .selectionContMenu div {
-                                        display: grid;
-                                        align-content: flex-start;
-                                        padding: var(--paddingS);
-                                        cursor: pointer;
-                                    }
-
-                                    .selectionContMenu div:hover {
-                                        background: var(--bg1);
-                                    }
-                                </style>
-
-                                <div
-                                    style="position: relative; width: max-content; cursor: pointer; user-select: none;">
-                                    <div class="selectionContTop">
-                                        <div class="iconCont"></div>
-
-                                        <p class="selectedOptionEl">Select option</p>
-
-                                        <img alt="iconImg" src="../public/chevron.svg" class="svgImg"
-                                            style="rotate: 90deg; --svgImgSize: var(--sizeS)" />
-                                    </div>
-
-                                    <div class="selectionContMenu">
-                                    </div>
-                                </div>
-                            </template>
-
                             <custom-select id="dateSelection" options="||datePicker||" value="">
                                 <svg style="display: none;" slot="my-svg" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512">

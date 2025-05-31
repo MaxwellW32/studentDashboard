@@ -67,7 +67,7 @@ export const dummyData: dummyDataType = {
                 title: "art exhibition setup",
                 description: "art club",
                 time: "3:00 pm",
-                bg: "var(--color5)",
+                bg: "var(--color4)",
             },
         ],
         "4": [
@@ -113,7 +113,7 @@ export const dummyData: dummyDataType = {
                 title: "field trip",
                 description: "grade 8 students",
                 time: "9:00 am",
-                bg: "var(--color5)",
+                bg: "var(--color4)",
             },
             {
                 title: "evening choir rehearsal",
@@ -149,7 +149,7 @@ export const dummyData: dummyDataType = {
                 title: "bake sale",
                 description: "home ec club",
                 time: "12:00 pm",
-                bg: "var(--color5)",
+                bg: "var(--color4)",
             },
         ],
         "28": [

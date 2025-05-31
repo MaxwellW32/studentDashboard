@@ -9,9 +9,65 @@ export class CustomSelect extends HTMLElement {
     menuVisible = false;
     constructor() {
         super();
-        const template = getElement("#select-element-template").content;
-        // add template
-        this.appendChild(template.cloneNode(true));
+        this.innerHTML += `
+${`
+<style>
+    .selectionContTop {
+        padding: var(--paddingS);
+        display: flex;
+        align-items: center;
+        gap: var(--gapS);
+        background: var(--bg1);
+        border: 1px solid var(--bg1);
+        border-radius: var(--borderRadiusS);
+    }
+
+    .selectionContTop:hover {
+        background: var(--bg2);
+    }
+
+    .selectionContMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--bg2);
+        border: 1px solid var(--bg1);
+        border-radius: var(--borderRadiusS);
+        width: 100%;
+        display: none;
+        z-index: 10;
+    }
+
+    .selectionContMenu.visible {
+        display: grid;
+        align-content: flex-start;
+    }
+
+    .selectionContMenu div {
+        display: grid;
+        align-content: flex-start;
+        padding: var(--paddingS);
+        cursor: pointer;
+    }
+
+    .selectionContMenu div:hover {
+        background: var(--bg1);
+    }
+</style>
+`}
+
+<div style="position: relative; width: max-content; cursor: pointer; user-select: none; text-transform: capitalize;">
+    <div class="selectionContTop">
+        <div class="iconCont"></div>
+
+        <p class="selectedOptionEl">Select option</p>
+
+        <img alt="iconImg" src="../public/chevron.svg" class="svgImg" style="rotate: 90deg; --svgImgSize: var(--sizeS)" />
+    </div>
+
+    <div class="selectionContMenu"></div>
+</div>
+`;
     }
     connectedCallback() {
         const optionsAttr = this.getAttribute('options');

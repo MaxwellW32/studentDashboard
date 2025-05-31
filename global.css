@@ -17,6 +17,7 @@
     --color4: #fdf6d9;
     --color5: #ff0000;
     --color6: #46bed8;
+    --color7: green;
 
     --bg1: #f7f8fa;
     --bg2: #ffffff;
@@ -51,6 +52,7 @@
     --gapES: .3rem;
     --gapS: .5rem;
     --gapR: 1rem;
+    --gapL: 1.5rem;
 
     /* border radius */
     --borderRadiusES: .2rem;
@@ -180,12 +182,14 @@ p {
 
 /* custom classes */
 .button1 {
+    /* purple buttons */
     background-color: var(--color2);
     border-radius: var(--borderRadiusS);
     padding: var(--paddingES);
 }
 
 .button2 {
+    /* tab buttons */
     background-color: var(--bg2);
     border-radius: var(--borderRadiusS);
     border: 1px solid var(--shade1);
@@ -197,6 +201,25 @@ p {
 
 .button2:hover {
     background-color: var(--bg1);
+}
+
+.button3 {
+    /* small tag buttons */
+    background-color: var(--bg2);
+    border-radius: var(--borderRadiusR);
+    cursor: pointer;
+    font-size: var(--fontSizeS);
+    display: flex;
+    gap: var(--gapES);
+    color: var(--color7);
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--paddingES);
+}
+
+.button3>img,
+.button3>svg {
+    width: var(--sizeS) !important;
 }
 
 .input1,

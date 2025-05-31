@@ -1,4 +1,6 @@
+import { SearchBar } from "../../customElements/searchBar.js";
 import { getElement } from "../../utility.js";
+customElements.define("search-bar", SearchBar);
 export function navbarMain() {
     let navMoreOptionsShowing = false;
     const navbarIconCont = getElement("#navbarIconCont");

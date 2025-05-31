@@ -8,6 +8,13 @@
     <script type="module" defer src="feeCollection.js"></script>
 
     <style>
+        .feeCollectionTable {}
+
+        .feeCollectionTableRow>div {
+            display: grid;
+            align-content: flex-start;
+
+        }
     </style>
 </head>
 
@@ -17,27 +24,32 @@
     <div class="allCont">
         <div id="navTemplate"></div>
 
-        <main class="main">
+        <main class="main" style="background-color: var(--bg1); padding: 0;">
             <div style="display: grid; align-content: flex-start;">
-                <div style="display: flex; flex-wrap: wrap;  gap: var(--gapR)">
+                <div style="display: flex; flex-wrap: wrap;  gap: var(--gapR);">
                     <div
-                        style="flex: 2 1 400px; display: grid; align-content: flex-start; grid-template-rows: auto 1fr;">
+                        style="flex: 3 1 600px; display: grid; align-content: flex-start; grid-template-rows: auto 1fr;  background-color: var(--bg2); padding: var(--paddingR);">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <h2>Fees Collection</h2>
 
                             <div>...</div>
                         </div>
 
-                        <canvas id="feesChart"></canvas>
+                        <canvas id="feesChart" style="max-height: 250px;"></canvas>
                     </div>
 
                     <template id="feeCollectionTileTemplate">
                         <div class="feeCollectionTile"
-                            style=" display: grid; align-content:flex-start; padding: var(--paddingR); background-color: var(--color1); border-radius: var(--borderRadiusR);">
+                            style=" display: grid; align-content:flex-start; gap: var(--gapR); padding: var(--paddingR); background-color: var(--color1); border-radius: var(--borderRadiusR); text-transform: capitalize;">
                             <div style="display: flex; align-items: center; justify-content: space-between;">
-                                <img alt="iconImg" src="../public/list.svg" class="svgImg" />
+                                <img alt="iconImg" src="../public/graph.svg" class="svgImg"
+                                    style="width: 2.5rem !important; height: 2.5rem !important;" />
 
-                                <button>15%</button>
+                                <button class="button3">
+                                    <img alt="iconImg" src="../public/arrow.svg" class="svgImg" />
+
+                                    <p>15%</p>
+                                </button>
                             </div>
 
                             <p class="feeCollectionTileAmt largeText">$126,450</p>
@@ -47,18 +59,88 @@
                     </template>
 
                     <div id="feeCollectionTileCont"
-                        style="flex: 1 1 400px; display: grid;  gap: var(--gapR); align-content: flex-start; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr))">
+                        style="flex: 1 1 400px; display: grid;  gap: var(--gapL); align-content: flex-start; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr))">
                     </div>
                 </div>
 
-                <div style="display: grid; align-content: flex-start;">
-                    <div style="display: flex; align-items: center;">
+                <div
+                    style="display: grid; align-content: flex-start; background-color: var(--bg2); padding: var(--paddingR);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
                         <h2>Fees Collection</h2>
 
-                        <div>
-                            <!-- middle menu -->
+                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                            <search-bar id="feeSearchButton" placeholder="Search by Name or ID"></search-bar>
+
+                            <custom-select id="dateSelection" options="||datePicker||" value="">
+                                <svg style="display: none;" slot="my-svg" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path
+                                        d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z" />
+                                </svg>
+
+                                <input class="dateSelectionInput" type="date" style="display: none;" />
+                            </custom-select>
+
+                            <custom-select id="weekSelection" options="11A, 10B, 12 AP Calculus, 9B, all classes"
+                                value="all classes"></custom-select>
+
+                            <custom-select id="weekSelection" options="status 1, status 2, all status"
+                                value="all status"></custom-select>
                         </div>
                     </div>
+
+                    <!-- default layout for row in fees collection table -->
+                    <template id="feeCollectionTableRowTemplate">
+                        <td class="feeCollectionTableRow">
+                            <div>sel</div>
+
+                            <div>
+                                <div style="display: flex; flex-wrap: wrap;">
+                                    <div>
+                                        <img class="feeRecordProfile" />
+                                    </div>
+
+                                    <div style="flex: 1 1 auto;">
+                                        <p class="feeRecordName"></p>
+
+                                        <p class="feeRecordDate"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordClass"></p>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordTuitionFee"></p>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordActivitiesFee"></p>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordMiscellaneous"></p>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordAmount"></p>
+                            </div>
+
+                            <div>
+                                <p class="feeRecordStatus"></p>
+                            </div>
+
+                            <div>
+                                <div style="display: flex; align-items: center; gap: var(--gapR);">
+                                    <img src="../../public/bar.svg" class="svgImg feeRecordEditBttn" />
+
+                                    <img src="../../public/bar.svg" class="svgImg feeRecordDeleteBttn" />
+                                </div>
+                            </div>
+                        </td>
+                    </template>
 
                     <table id="feeCollectionTable">
 

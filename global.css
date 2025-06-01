@@ -7,7 +7,7 @@
 *::after {
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
     box-sizing: border-box;
-    border: 1px solid red !important;
+    /* border: 1px solid red !important; */
 }
 
 :root {
@@ -196,10 +196,15 @@ input[type="checkbox"]:checked {
 
 /* custom classes */
 .button1 {
-    /* purple buttons */
+    /* purple buttons and long links */
     background-color: var(--color2);
     border-radius: var(--borderRadiusS);
     padding: var(--paddingES);
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    gap: var(--gapS);
+    flex-wrap: wrap;
 }
 
 .button2 {
@@ -233,6 +238,18 @@ input[type="checkbox"]:checked {
 
 .button3>img,
 .button3>svg {
+    width: var(--sizeS) !important;
+}
+
+.button4 {
+    /* yellow circle buttons */
+    background-color: var(--color4);
+    border-radius: var(--borderRadiusEL);
+    padding: var(--paddingES);
+}
+
+.button4>img,
+.button4>svg {
     width: var(--sizeS) !important;
 }
 
@@ -297,6 +314,14 @@ input[type="checkbox"]:checked {
     width: .5rem;
     border-radius: var(--borderRadiusEL);
     background-color: hsl(from var(--tagColor) h 100 50);
+}
+
+.tag3 {
+    padding: var(--paddingES) var(--paddingS);
+    text-transform: capitalize;
+    border-radius: var(--borderRadiusR);
+    color: var(--shade2);
+    background-color: var(--bg1);
 }
 
 .svgImg {

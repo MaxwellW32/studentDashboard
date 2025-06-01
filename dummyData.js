@@ -411,5 +411,107 @@ export const dummyData = {
         { userId: "student18", date: "2015-04-09", class: "11C", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
         { userId: "student19", date: "2015-06-20", class: "12A", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
         { userId: "student20", date: "2015-07-11", class: "10C", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" }
+    ],
+    noticeBoard: [
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "welcome back to school!",
+            author: "principal linda carter",
+            date: "2024-08-01",
+            views: 1200,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum laborum aut nulla possimus accusamus, excepturi totam illum adipisci eveniet tempore ullam nemo sit explicabo, quaerat, pariatur aspernatur repudiandae atque laudantium?",
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Science Fair Coming Up!",
+            author: "Mr. James Bennett",
+            date: "2024-09-15",
+            views: 950,
+            tags: ["school"],
+            link: "#",
+            text: "Join us for this year's science fair. Bring your experiments and creativity! All students are encouraged to participate."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Sports Day Preparations",
+            author: "Coach Alicia Gomez",
+            date: "2024-10-03",
+            views: 700,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Practice sessions for Sports Day begin next week. Wear proper gear and stay hydrated!"
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "New Library Books Available",
+            author: "Mrs. Diana Brooks",
+            date: "2024-10-12",
+            views: 610,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "We’ve added over 100 new titles to the library. Come and check them out during your free period!"
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Student Council Elections",
+            author: "Vice Principal Thomas Lee",
+            date: "2024-09-29",
+            views: 850,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Nominations for student council begin next week. See your homeroom teacher for details."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Parent-Teacher Conference Reminder",
+            author: "Admin Office",
+            date: "2024-11-02",
+            views: 1300,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Reminder: Parent-Teacher conferences will be held on November 10. Schedule your meetings in advance."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Uniform Policy Update",
+            author: "Principal Linda Carter",
+            date: "2024-08-20",
+            views: 1450,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Please review the updated uniform guidelines. These changes will take effect starting next term."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Midterm Exam Schedule Released",
+            author: "Academic Coordinator Mr. Riley",
+            date: "2024-10-18",
+            views: 980,
+            tags: ["school", "academic"],
+            link: "#",
+            text: "The official midterm timetable has been posted. Make sure to check your subjects and room assignments."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Art Competition Winners",
+            author: "Ms. Helena Price",
+            date: "2024-09-10",
+            views: 570,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Congratulations to the winners of the annual art competition! Winning entries are displayed in the main hall."
+        },
+        {
+            img: "https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg",
+            title: "Thanksgiving Charity Drive",
+            author: "Community Outreach Committee",
+            date: "2024-11-15",
+            views: 890,
+            tags: ["school", "academic", "student"],
+            link: "#",
+            text: "Help us support families in need by donating canned goods and supplies. Donations accepted until November 25."
+        }
     ]
 };

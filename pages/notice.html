@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div style="display: flex; flex-wrap: wrap; gap: var(--gapR);">
+                <div style="display: flex; flex-wrap: wrap; gap: var(--gapR); flex-direction: row-reverse;">
                     <template id="noticeBoardItemTemplate">
                         <div class="noticeBoardItem">
                             <div
@@ -129,12 +129,12 @@
                         </div>
                     </template>
 
-                    <div id="noticeBoardItemCont"
-                        style="flex: 3 1 300px; display: grid; align-content: flex-start; gap: var(--gapR);"></div>
-
                     <div id="noticeBoardFocusItemCont"
                         style="flex: 1 1 150px; display: grid; align-content: flex-start; gap: var(--gapR);">
                     </div>
+
+                    <div id="noticeBoardItemCont"
+                        style="flex: 3 1 300px; display: grid; align-content: flex-start; gap: var(--gapR);"></div>
                 </div>
 
                 <div

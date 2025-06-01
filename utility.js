@@ -81,3 +81,6 @@ export function areDatesEqual(date1, date2) {
         date1.getMonth() === date2.getMonth() &&
         date1.getDate() === date2.getDate());
 }
+export function formatCurrency(amount) {
+    return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 });
+}

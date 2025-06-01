@@ -1,3 +1,33 @@
+export type user = {
+    img: string,
+    name: string,
+}
+
+export const dummyUsers: {
+    [key: string]: user;
+} = {
+    "student1": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Sophia Wilson" },
+    "student2": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Liam Johnson" },
+    "student3": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Olivia Brown" },
+    "student4": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Noah Davis" },
+    "student5": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Emma Garcia" },
+    "student6": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "William Martinez" },
+    "student7": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ava Rodriguez" },
+    "student8": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "James Hernandez" },
+    "student9": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Isabella Lee" },
+    "student10": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Benjamin Walker" },
+    "student11": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mia Hall" },
+    "student12": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Lucas Allen" },
+    "student13": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Amelia Young" },
+    "student14": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Henry King" },
+    "student15": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Charlotte Wright" },
+    "student16": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Alexander Scott" },
+    "student17": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Harper Green" },
+    "student18": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Daniel Adams" },
+    "student19": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Evelyn Baker" },
+    "student20": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Michael Nelson" }
+};
+
 export type calenderListItemsType = {
     [key: string]: {
         title: string;
@@ -22,10 +52,23 @@ export type studentListType = {
     attendance: studentAttendanceType;
 }
 
+export type feeCollectionStatusType = "paid" | "pending" | "overdue"
+export type feeCollectionType = {
+    userId: string,
+    date: string,
+    class: string,
+    tuition: number,
+    activitiesFee: number,
+    miscellaneous: number,
+    amount: number | null,
+    status: feeCollectionStatusType
+}
+
 type dummyDataType = {
     calenderListItems: calenderListItemsType,
     agenda: agendaType[],
-    studentsList: studentListType[]
+    studentsList: studentListType[],
+    feeCollectionList: feeCollectionType[]
 }
 
 export const dummyData: dummyDataType = {
@@ -397,5 +440,28 @@ export const dummyData: dummyDataType = {
                 "Sun May 18 2025": { attended: null }
             },
         },
+    ],
+    feeCollectionList: [
+        { userId: "student1", date: "2015-02-17", class: "11A", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student2", date: "2015-03-12", class: "10B", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
+        { userId: "student3", date: "2015-04-01", class: "9A", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
+        { userId: "student4", date: "2015-02-25", class: "12C", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student5", date: "2015-05-15", class: "11B", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
+        { userId: "student6", date: "2015-03-10", class: "10C", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" },
+        { userId: "student7", date: "2015-01-20", class: "9B", tuition: 3900, activitiesFee: 180, miscellaneous: 120, amount: null, status: "paid" },
+        { userId: "student8", date: "2015-06-11", class: "8A", tuition: 3700, activitiesFee: 160, miscellaneous: 90, amount: null, status: "pending" },
+        { userId: "student9", date: "2015-04-18", class: "11A", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student10", date: "2015-07-21", class: "12A", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "overdue" },
+        { userId: "student11", date: "2015-08-05", class: "10B", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "pending" },
+        { userId: "student12", date: "2015-09-13", class: "9C", tuition: 4000, activitiesFee: 220, miscellaneous: 100, amount: null, status: "paid" },
+        { userId: "student13", date: "2015-10-27", class: "11B", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student14", date: "2015-11-03", class: "8B", tuition: 3600, activitiesFee: 150, miscellaneous: 100, amount: null, status: "overdue" },
+        { userId: "student15", date: "2015-12-22", class: "9A", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
+        { userId: "student16", date: "2015-02-14", class: "12C", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student17", date: "2015-03-30", class: "10A", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
+        { userId: "student18", date: "2015-04-09", class: "11C", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
+        { userId: "student19", date: "2015-06-20", class: "12A", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student20", date: "2015-07-11", class: "10C", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" }
+
     ]
 };

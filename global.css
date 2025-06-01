@@ -5,9 +5,9 @@
 *,
 *::before,
 *::after {
+    /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
     box-sizing: border-box;
     border: 1px solid red !important;
-    /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
 }
 
 :root {
@@ -18,7 +18,6 @@
     --color5: #ff0000;
     --color6: #46bed8;
     --color7: green;
-
     --bg1: #f7f8fa;
     --bg2: #ffffff;
 
@@ -44,6 +43,7 @@
     --paddingES: .2rem;
     --paddingS: .5rem;
     --paddingR: 1rem;
+    --paddingL: 1.5rem;
 
     /* margin */
     --marginR: 1rem;
@@ -53,6 +53,7 @@
     --gapS: .5rem;
     --gapR: 1rem;
     --gapL: 1.5rem;
+    --gapEL: 2rem;
 
     /* border radius */
     --borderRadiusES: .2rem;
@@ -162,6 +163,19 @@ p {
     display: block;
 }
 
+input[type="checkbox"] {
+    --checkboxColor: var(--checkboxColorStarter, hsl(from var(--color1) h 100 50));
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--borderRadiusES);
+    background-color: var(--bg2);
+    border: 3px solid var(--bg1);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--checkboxColor);
+    border: 3px solid transparent;
+}
 
 
 
@@ -260,6 +274,29 @@ p {
     padding: var(--paddingS);
     background-color: var(--tagColor, var(--color2));
     border-radius: var(--borderRadiusES);
+}
+
+.tag2 {
+    --tagColor: var(--tagColorStarter, var(--color1));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-start;
+    gap: var(--gapS);
+    padding: var(--paddingES) var(--paddingS);
+    text-transform: capitalize;
+    border-radius: var(--borderRadiusR);
+
+    color: hsl(from var(--tagColor) h 100 50);
+    background-color: hsl(from var(--tagColor) h 100 95);
+}
+
+.tag2 .bulletPoint {
+    aspect-ratio: 1/1;
+    width: .5rem;
+    border-radius: var(--borderRadiusEL);
+    background-color: hsl(from var(--tagColor) h 100 50);
 }
 
 .svgImg {

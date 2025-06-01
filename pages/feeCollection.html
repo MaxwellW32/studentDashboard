@@ -8,12 +8,47 @@
     <script type="module" defer src="feeCollection.js"></script>
 
     <style>
-        .feeCollectionTable {}
-
-        .feeCollectionTableRow>div {
+        .feeCollectionTable {
             display: grid;
             align-content: flex-start;
+            overflow: auto;
+        }
 
+        .feeCollectionTable>tr {
+            display: flex;
+            align-items: center;
+            padding: var(--paddingR);
+            border-bottom: 3px solid var(--bg1);
+        }
+
+        .feeCollectionTableHeadingRow {
+            /* blue */
+            background-color: var(--color1);
+            text-transform: capitalize;
+            padding: var(--paddingL) var(--paddingR) !important;
+        }
+
+        .feeCollectionTableRow:hover,
+        .feeCollectionTableRow.selected {
+            /* purple */
+            background-color: hsl(from var(--color2) h s calc(l * 1.07));
+        }
+
+        .feeCollectionTable th,
+        .feeCollectionTable td {
+            flex: 1 0 100px;
+            display: grid;
+            align-content: flex-start;
+        }
+
+        .feeCollectionTable th.larger,
+        .feeCollectionTable td.larger {
+            flex-basis: 200px;
+        }
+
+        .feeCollectionTable th.smaller,
+        .feeCollectionTable td.smaller {
+            flex: 0 0 50px;
         }
     </style>
 </head>
@@ -46,7 +81,8 @@
                                     style="width: 2.5rem !important; height: 2.5rem !important;" />
 
                                 <button class="button3">
-                                    <img alt="iconImg" src="../public/arrow.svg" class="svgImg" />
+                                    <img alt="iconImg" src="../public/arrow.svg" class="svgImg"
+                                        style="width: .7rem !important; height: .7rem !important;" />
 
                                     <p>15%</p>
                                 </button>
@@ -64,11 +100,11 @@
                 </div>
 
                 <div
-                    style="display: grid; align-content: flex-start; background-color: var(--bg2); padding: var(--paddingR);">
+                    style="display: grid; align-content: flex-start; background-color: var(--bg2); padding: var(--paddingR); gap: var(--gapR)">
                     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
                         <h2>Fees Collection</h2>
 
-                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--gapL);">
                             <search-bar id="feeSearchButton" placeholder="Search by Name or ID"></search-bar>
 
                             <custom-select id="dateSelection" options="||datePicker||" value="">
@@ -81,70 +117,134 @@
                                 <input class="dateSelectionInput" type="date" style="display: none;" />
                             </custom-select>
 
-                            <custom-select id="weekSelection" options="11A, 10B, 12 AP Calculus, 9B, all classes"
+                            <custom-select id="classSelection" options="11A, 10B, 12 AP Calculus, 9B, all classes"
                                 value="all classes"></custom-select>
 
-                            <custom-select id="weekSelection" options="status 1, status 2, all status"
+                            <custom-select id="statusSelection" options="status 1, status 2, all status"
                                 value="all status"></custom-select>
                         </div>
                     </div>
 
-                    <!-- default layout for row in fees collection table -->
-                    <template id="feeCollectionTableRowTemplate">
-                        <td class="feeCollectionTableRow">
-                            <div>sel</div>
+                    <!-- default layout for theading in fees collection table -->
+                    <template id="feeCollectionTableHeadingRowTemplate">
+                        <tr class="feeCollectionTableHeadingRow">
+                            <th class="smaller">
+                                <input type="checkbox" style="--checkboxColorStarter: var(--color2)" />
+                            </th>
 
-                            <div>
-                                <div style="display: flex; flex-wrap: wrap;">
-                                    <div>
-                                        <img class="feeRecordProfile" />
-                                    </div>
+                            <th class="larger">
+                                <p>student name</p>
+                            </th>
 
-                                    <div style="flex: 1 1 auto;">
-                                        <p class="feeRecordName"></p>
+                            <th>
+                                <p>class</p>
+                            </th>
 
-                                        <p class="feeRecordDate"></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <th>
+                                <p>tuition fee</p>
+                            </th>
 
-                            <div>
-                                <p class="feeRecordClass"></p>
-                            </div>
+                            <th>
+                                <p>activities fee</p>
+                            </th>
 
-                            <div>
-                                <p class="feeRecordTuitionFee"></p>
-                            </div>
+                            <th>
+                                <p>miscellaneous</p>
+                            </th>
 
-                            <div>
-                                <p class="feeRecordActivitiesFee"></p>
-                            </div>
+                            <th>
+                                <p>amount</p>
+                            </th>
 
-                            <div>
-                                <p class="feeRecordMiscellaneous"></p>
-                            </div>
+                            <th>
+                                <p>status</p>
+                            </th>
 
-                            <div>
-                                <p class="feeRecordAmount"></p>
-                            </div>
-
-                            <div>
-                                <p class="feeRecordStatus"></p>
-                            </div>
-
-                            <div>
-                                <div style="display: flex; align-items: center; gap: var(--gapR);">
-                                    <img src="../../public/bar.svg" class="svgImg feeRecordEditBttn" />
-
-                                    <img src="../../public/bar.svg" class="svgImg feeRecordDeleteBttn" />
-                                </div>
-                            </div>
-                        </td>
+                            <th>
+                                <p>action</p>
+                            </th>
+                        </tr>
                     </template>
 
-                    <table id="feeCollectionTable">
+                    <!-- default layout for row in fees collection table -->
+                    <template id="feeCollectionTableRowTemplate">
+                        <tr class="feeCollectionTableRow">
+                            <td class="smaller">
+                                <input type="checkbox" class="feeCheckbox" />
+                            </td>
 
-                    </table>
+                            <td class="larger">
+                                <div
+                                    style="display: grid; align-content: flex-start; grid-template-columns: 2.5rem 1fr; gap: var(--gapS)">
+                                    <div
+                                        style="border-radius: var(--borderRadiusL); overflow: clip; aspect-ratio: 1/1;">
+                                        <img class="feeRecordProfile"
+                                            style="object-fit: cover; height: 100%; width: 100%;" />
+                                    </div>
+
+                                    <div style="display: grid; align-content: flex-start; gap: var(--gapS);">
+                                        <p class="feeRecordName"></p>
+
+                                        <p class="feeRecordDate" style="color: var(--shade1);"></p>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <p class="feeRecordClass"></p>
+                            </td>
+
+                            <td>
+                                <p class="feeRecordTuitionFee"></p>
+                            </td>
+
+                            <td>
+                                <p class="feeRecordActivitiesFee"></p>
+                            </td>
+
+                            <td>
+                                <p class="feeRecordMiscellaneous"></p>
+                            </td>
+
+                            <td>
+                                <p class="feeRecordAmount"></p>
+                            </td>
+
+                            <td>
+                                <div class="feeRecordStatus tag2">
+                                    <div class="bulletPoint"></div>
+
+                                    <p class="feeRecordStatusP"></p>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div style="display: flex; align-items: center; gap: var(--gapR);">
+                                    <img src="../../public/edit.svg" class="svgImg feeRecordEditBttn" />
+
+                                    <img src="../../public/delete.svg" class="svgImg feeRecordDeleteBttn" />
+                                </div>
+                            </td>
+                        </tr>
+                    </template>
+
+                    <table id="feeCollectionTable" class="feeCollectionTable"></table>
+
+                    <div
+                        style="display: grid; align-content: flex-start; grid-template-columns: auto 1fr auto; align-items: center;">
+                        <button class="button2">previous</button>
+
+                        <ul style="display: flex; justify-content: center; gap: var(--gapS); color: var(--shade1);">
+                            <li style="color: var(--shade2);">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>...</li>
+                            <li>17</li>
+                        </ul>
+
+                        <button class="button2">next</button>
+                    </div>
                 </div>
             </div>
         </main>

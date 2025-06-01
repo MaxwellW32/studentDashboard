@@ -19,7 +19,6 @@ function attendance() {
         //apply active date from selection menu
         activeDate = new Date(event.detail.value);
 
-        //make table on load
         generateTable()
     });
     weekSelection.addEventListener('change', (event: any) => {
@@ -27,7 +26,6 @@ function attendance() {
 
         activeWeekIndex = parseInt(event.detail.value.trim().slice(5, 6)) - 1
 
-        //make table on load
         generateTable()
     });
     classSelection.addEventListener('change', (event: any) => {
@@ -35,7 +33,6 @@ function attendance() {
     });
 
     function runAll() {
-        //make table on load
         generateTable()
     }
     runAll()
@@ -55,16 +52,6 @@ function attendance() {
 
         const table = getElement<HTMLTableElement>("#attendanceTable");
         table.innerHTML = ""; // clear previous attendance table
-
-        //to do
-        //make each row a tr
-        //firs tr is heading...
-        //add a student name td block..., add on individual td blocks to show day...
-        //next row is a record...
-        //loop over each student...
-        //first td block is a name field, then loop over all days in the calender week and fill with attendance blocks - here, not, null
-        //add event listender for click
-
 
         //make a new row
         const headerRow = document.createElement("tr");

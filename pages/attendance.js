@@ -1,5 +1,5 @@
 import { CustomSelect } from "../customElements/selectElement.js";
-import { dummyData } from "../dummyData.js";
+import { dummyData, dummyUsers } from "../dummyData.js";
 import { generateCalendarData, getElement } from "../utility.js";
 customElements.define("custom-select", CustomSelect);
 function attendance() {
@@ -61,12 +61,15 @@ function attendance() {
         //add header to table
         table.appendChild(headerRow);
         //loop over students
-        dummyData.studentsList.forEach(eachStudent => {
+        dummyData.attendanceList.forEach(eachAttendanceRec => {
+            const seenUser = dummyUsers[eachAttendanceRec.userId];
+            if (seenUser === undefined)
+                throw new Error(`not seeing user Id ${eachAttendanceRec.userId}`);
             //make a new row
             const studentRow = document.createElement("tr");
             const studentNameTd = document.createElement("td");
             studentNameTd.classList.add("larger");
-            studentNameTd.innerText = eachStudent.name;
+            studentNameTd.innerText = seenUser.name;
             studentRow.appendChild(studentNameTd);
             //loop over the calender days
             calenderData.forEach(eachCalenderWeek => {
@@ -75,7 +78,7 @@ function attendance() {
                         return;
                     //check if dates seen for student
                     const seenCalenderDate = new Date(activeDate.getFullYear(), activeDate.getMonth(), eachDay);
-                    let seenStudentAttendance = eachStudent.attendance[seenCalenderDate.toDateString()];
+                    let seenStudentAttendance = eachAttendanceRec.attendance[seenCalenderDate.toDateString()];
                     if (seenStudentAttendance === undefined) {
                         seenStudentAttendance = {
                             attended: null

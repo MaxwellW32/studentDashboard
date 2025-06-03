@@ -1,0 +1,71 @@
+import { dummyUsers } from "../dummyData.js";
+import { getElement } from "../utility.js";
+function teachers() {
+    function runOnLoad() {
+        //make table on load
+        generateTable();
+    }
+    runOnLoad();
+}
+teachers();
+function generateTable() {
+    const table = getElement("#teacherTable");
+    table.innerHTML = ""; // clear previous teacher table
+    //make a new row
+    const tableHeadingRowTemplate = getElement("#teacherTableHeadingRowTemplate");
+    const tableHeadingRowClone = tableHeadingRowTemplate.content.cloneNode(true);
+    const tableHeadingCheckbox = getElement('input[type="checkbox"]', undefined, tableHeadingRowClone);
+    let tableHeadingCheckboxSelected = false;
+    tableHeadingCheckbox.addEventListener("click", () => {
+        tableHeadingCheckboxSelected = !tableHeadingCheckboxSelected;
+        if (tableHeadingCheckboxSelected) {
+            console.log(`$selected`);
+            alert("complete select all logic");
+        }
+        else {
+        }
+    });
+    //add header row
+    table.appendChild(tableHeadingRowClone);
+    //ensure only teachers are taken from dummy users
+    const teacherObj = Object.fromEntries(Object.entries(dummyUsers).filter(eachEntry => {
+        const eachUser = eachEntry[1];
+        return eachUser.type === "teacher";
+    }));
+    //go over each record and make the row
+    Object.entries(teacherObj).forEach(eachTeacherEntry => {
+        const eachTeacher = eachTeacherEntry[1];
+        const tableRowTemplate = getElement("#teacherTableRowTemplate");
+        const tableRowClone = tableRowTemplate.content.cloneNode(true);
+        const tableRow = getElement("tr", undefined, tableRowClone);
+        let selected = false;
+        const seenCheckbox = getElement(".teacherCheckbox", undefined, tableRowClone);
+        const teacherRecordProfileEl = getElement(".teacherRecordProfile", undefined, tableRowClone);
+        const teacherRecordNameEl = getElement(".teacherRecordName", undefined, tableRowClone);
+        const teacherRecordEmailEl = getElement(".teacherRecordEmail", undefined, tableRowClone);
+        const teacherSchoolIdEl = getElement(".teacherSchoolId", undefined, tableRowClone);
+        const teacherRecordSubjectEl = getElement(".teacherRecordSubject", undefined, tableRowClone);
+        const teacherRecordClassesEl = getElement(".teacherRecordClasses", undefined, tableRowClone);
+        const teacherRecordPhoneNumberEl = getElement(".teacherRecordPhoneNumber", undefined, tableRowClone);
+        const teacherRecordAddressEl = getElement(".teacherRecordAddress", undefined, tableRowClone);
+        seenCheckbox.addEventListener("click", () => {
+            selected = !selected;
+            tableRow.classList.toggle("selected");
+            if (selected) {
+                console.log(`$selected`);
+            }
+            else {
+            }
+        });
+        teacherRecordProfileEl.src = eachTeacher.img;
+        teacherRecordNameEl.innerText = eachTeacher.name;
+        teacherRecordEmailEl.innerText = eachTeacher.email;
+        teacherSchoolIdEl.innerText = eachTeacher.schoolId;
+        teacherRecordSubjectEl.innerText = eachTeacher.subject;
+        teacherRecordClassesEl.innerText = eachTeacher.classes.join(", ");
+        teacherRecordPhoneNumberEl.innerText = eachTeacher.phone;
+        teacherRecordAddressEl.innerText = eachTeacher.address;
+        //add row to table
+        table.appendChild(tableRowClone);
+    });
+}

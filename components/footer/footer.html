@@ -1,8 +1,49 @@
-<footer class="footer" style="margin-top: vaR(--marginR);">
+<footer class="footer" style="margin-top: vaR(--marginR); display: grid; align-content: flex-start; gap: var(--gapR);">
     <style>
+        .footerMenu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--gapR);
+            align-items: center;
+            justify-content: center;
+            color: var(--shade1);
+            text-transform: capitalize;
+        }
 
-
+        .footerMenu>li {
+            display: flex;
+            gap: var(--gapS);
+            align-items: center;
+        }
     </style>
 
-    footer
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--gapR); align-items: center;">
+        <ul class="footerMenu">
+            <li>
+                <img src="../../public/email.svg" class="svgImg" />
+
+                <p>emailaddress@edu.com</p>
+            </li>
+
+            <li>
+                <img src="../../public/phone.svg" class="svgImg" />
+
+                <p>+876 123 4567</p>
+            </li>
+        </ul>
+
+        <ul class="footerMenu">
+            <li>
+                <p>terms of use</p>
+            </li>
+
+            <li>
+                <p>privacy policy</p>
+            </li>
+
+            <li>
+                <p>copyright@studentdashboard</p>
+            </li>
+        </ul>
+    </div>
 </footer>

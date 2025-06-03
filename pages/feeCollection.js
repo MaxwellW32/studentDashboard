@@ -38,68 +38,70 @@ function feeCollection() {
         generateTable();
     }
     runOnLoad();
-    function generateTable() {
-        const table = getElement("#feeCollectionTable");
-        table.innerHTML = ""; // clear previous attendance table
-        //make a new row
-        const tableHeadingRowTemplate = getElement("#feeCollectionTableHeadingRowTemplate");
-        const tableHeadingRow = tableHeadingRowTemplate.content.cloneNode(true);
-        const tableHeadingCheckbox = getElement('input[type="checkbox"]', undefined, tableHeadingRow);
-        let tableHeadingCheckboxSelected = false;
-        tableHeadingCheckbox.addEventListener("click", () => {
-            tableHeadingCheckboxSelected = !tableHeadingCheckboxSelected;
-            if (tableHeadingCheckboxSelected) {
+}
+feeCollection();
+function generateTable() {
+    const table = getElement("#feeCollectionTable");
+    table.innerHTML = ""; // clear previous fee collection table
+    //make a new row
+    const tableHeadingRowTemplate = getElement("#feeCollectionTableHeadingRowTemplate");
+    const tableHeadingRowClone = tableHeadingRowTemplate.content.cloneNode(true);
+    const tableHeadingCheckbox = getElement('input[type="checkbox"]', undefined, tableHeadingRowClone);
+    let tableHeadingCheckboxSelected = false;
+    tableHeadingCheckbox.addEventListener("click", () => {
+        tableHeadingCheckboxSelected = !tableHeadingCheckboxSelected;
+        if (tableHeadingCheckboxSelected) {
+            console.log(`$selected`);
+            alert("complete select all logic");
+        }
+        else {
+        }
+    });
+    //add header row
+    table.appendChild(tableHeadingRowClone);
+    //go over each record and make the row
+    dummyData.feeCollectionList.forEach(eachFeeCollection => {
+        const tableRowTemplate = getElement("#feeCollectionTableRowTemplate");
+        const tableRowClone = tableRowTemplate.content.cloneNode(true);
+        const tableRow = getElement("tr", undefined, tableRowClone);
+        let selected = false;
+        const seenCheckbox = getElement(".feeCheckbox", undefined, tableRowClone);
+        const feeRecordProfile = getElement(".feeRecordProfile", undefined, tableRowClone);
+        const feeRecordName = getElement(".feeRecordName", undefined, tableRowClone);
+        const feeRecordDate = getElement(".feeRecordDate", undefined, tableRowClone);
+        const feeRecordClass = getElement(".feeRecordClass", undefined, tableRowClone);
+        const feeRecordTuitionFee = getElement(".feeRecordTuitionFee", undefined, tableRowClone);
+        const feeRecordActivitiesFee = getElement(".feeRecordActivitiesFee", undefined, tableRowClone);
+        const feeRecordMiscellaneous = getElement(".feeRecordMiscellaneous", undefined, tableRowClone);
+        const feeRecordAmount = getElement(".feeRecordAmount", undefined, tableRowClone);
+        const feeRecordStatus = getElement(".feeRecordStatus", undefined, tableRowClone);
+        const feeRecordStatusP = getElement(".feeRecordStatusP", undefined, tableRowClone);
+        seenCheckbox.addEventListener("click", () => {
+            selected = !selected;
+            tableRow.classList.toggle("selected");
+            if (selected) {
                 console.log(`$selected`);
-                alert("complete select all logic");
             }
             else {
             }
         });
-        //add header row
-        table.appendChild(tableHeadingRow);
-        //go over each record and make the row
-        dummyData.feeCollectionList.forEach(eachFeeCollection => {
-            const tableRowTemplate = getElement("#feeCollectionTableRowTemplate");
-            const tableRowClone = tableRowTemplate.content.cloneNode(true);
-            const tableRow = getElement("tr", undefined, tableRowClone);
-            let selected = false;
-            const seenCheckbox = getElement(".feeCheckbox", undefined, tableRowClone);
-            const feeRecordProfile = getElement(".feeRecordProfile", undefined, tableRowClone);
-            const feeRecordName = getElement(".feeRecordName", undefined, tableRowClone);
-            const feeRecordDate = getElement(".feeRecordDate", undefined, tableRowClone);
-            const feeRecordClass = getElement(".feeRecordClass", undefined, tableRowClone);
-            const feeRecordTuitionFee = getElement(".feeRecordTuitionFee", undefined, tableRowClone);
-            const feeRecordActivitiesFee = getElement(".feeRecordActivitiesFee", undefined, tableRowClone);
-            const feeRecordMiscellaneous = getElement(".feeRecordMiscellaneous", undefined, tableRowClone);
-            const feeRecordAmount = getElement(".feeRecordAmount", undefined, tableRowClone);
-            const feeRecordStatus = getElement(".feeRecordStatus", undefined, tableRowClone);
-            const feeRecordStatusP = getElement(".feeRecordStatusP", undefined, tableRowClone);
-            seenCheckbox.addEventListener("click", () => {
-                selected = !selected;
-                tableRow.classList.toggle("selected");
-                if (selected) {
-                    console.log(`$selected`);
-                }
-                else {
-                }
-            });
-            const seenUser = dummyUsers[eachFeeCollection.userId];
-            if (seenUser === undefined)
-                throw new Error(`not seeing user Id ${eachFeeCollection.userId}`);
-            feeRecordProfile.src = seenUser.img;
-            feeRecordName.innerText = seenUser.name;
-            feeRecordDate.innerText = eachFeeCollection.date;
-            feeRecordClass.innerText = eachFeeCollection.class;
-            feeRecordTuitionFee.innerText = formatCurrency(eachFeeCollection.tuition);
-            feeRecordActivitiesFee.innerText = formatCurrency(eachFeeCollection.activitiesFee);
-            feeRecordMiscellaneous.innerText = formatCurrency(eachFeeCollection.miscellaneous);
-            const seenAmount = eachFeeCollection.tuition + eachFeeCollection.activitiesFee + eachFeeCollection.miscellaneous;
-            feeRecordAmount.innerText = formatCurrency(seenAmount);
-            feeRecordStatusP.innerText = eachFeeCollection.status;
-            let tagColor = eachFeeCollection.status === "paid" ? "var(--color1)" : eachFeeCollection.status === "overdue" ? "var(--color5)" : "var(--color4)";
-            feeRecordStatus.style.setProperty('--tagColorStarter', tagColor);
-            table.appendChild(tableRowClone);
-        });
-    }
+        const seenUser = dummyUsers[eachFeeCollection.userId];
+        if (seenUser === undefined)
+            throw new Error(`not seeing user Id ${eachFeeCollection.userId}`);
+        if (seenUser.type !== "student")
+            throw new Error("user not a student");
+        feeRecordProfile.src = seenUser.img;
+        feeRecordName.innerText = seenUser.name;
+        feeRecordDate.innerText = eachFeeCollection.date;
+        feeRecordClass.innerText = seenUser.type === "student" ? seenUser.class : "teacher";
+        feeRecordTuitionFee.innerText = formatCurrency(eachFeeCollection.tuition);
+        feeRecordActivitiesFee.innerText = formatCurrency(eachFeeCollection.activitiesFee);
+        feeRecordMiscellaneous.innerText = formatCurrency(eachFeeCollection.miscellaneous);
+        const seenAmount = eachFeeCollection.tuition + eachFeeCollection.activitiesFee + eachFeeCollection.miscellaneous;
+        feeRecordAmount.innerText = formatCurrency(seenAmount);
+        feeRecordStatusP.innerText = eachFeeCollection.status;
+        let tagColor = eachFeeCollection.status === "paid" ? "var(--color1)" : eachFeeCollection.status === "overdue" ? "var(--color5)" : "var(--color4)";
+        feeRecordStatus.style.setProperty('--tagColorStarter', tagColor);
+        table.appendChild(tableRowClone);
+    });
 }
-feeCollection();

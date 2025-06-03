@@ -6,51 +6,6 @@
     <script type="module" defer src="../layout.js"></script>
 
     <script type="module" defer src="feeCollection.js"></script>
-
-    <style>
-        .feeCollectionTable {
-            display: grid;
-            align-content: flex-start;
-            overflow: auto;
-        }
-
-        .feeCollectionTable>tr {
-            display: flex;
-            align-items: center;
-            padding: var(--paddingR);
-            border-bottom: 3px solid var(--bg1);
-        }
-
-        .feeCollectionTableHeadingRow {
-            /* blue */
-            background-color: var(--color1);
-            text-transform: capitalize;
-            padding: var(--paddingL) var(--paddingR) !important;
-        }
-
-        .feeCollectionTableRow:hover,
-        .feeCollectionTableRow.selected {
-            /* purple */
-            background-color: hsl(from var(--color2) h s calc(l * 1.07));
-        }
-
-        .feeCollectionTable th,
-        .feeCollectionTable td {
-            flex: 1 0 100px;
-            display: grid;
-            align-content: flex-start;
-        }
-
-        .feeCollectionTable th.larger,
-        .feeCollectionTable td.larger {
-            flex-basis: 200px;
-        }
-
-        .feeCollectionTable th.smaller,
-        .feeCollectionTable td.smaller {
-            flex: 0 0 50px;
-        }
-    </style>
 </head>
 
 <body>
@@ -127,7 +82,7 @@
 
                     <!-- default layout for theading in fees collection table -->
                     <template id="feeCollectionTableHeadingRowTemplate">
-                        <tr class="feeCollectionTableHeadingRow">
+                        <tr>
                             <th class="smaller">
                                 <input type="checkbox" style="--checkboxColorStarter: var(--color2)" />
                             </th>
@@ -168,7 +123,7 @@
 
                     <!-- default layout for row in fees collection table -->
                     <template id="feeCollectionTableRowTemplate">
-                        <tr class="feeCollectionTableRow">
+                        <tr>
                             <td class="smaller">
                                 <input type="checkbox" class="feeCheckbox" />
                             </td>
@@ -228,7 +183,7 @@
                         </tr>
                     </template>
 
-                    <table id="feeCollectionTable" class="feeCollectionTable"></table>
+                    <table id="feeCollectionTable" class="recordTable"></table>
 
                     <div
                         style="display: grid; align-content: flex-start; grid-template-columns: auto 1fr auto; align-items: center;">

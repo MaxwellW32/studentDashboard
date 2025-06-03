@@ -7,7 +7,7 @@
 *::after {
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
     box-sizing: border-box;
-    /* border: 1px solid red !important; */
+    border: 1px solid red !important;
 }
 
 :root {
@@ -80,7 +80,8 @@
 
 head,
 script,
-style {
+style,
+template {
     display: none;
 }
 
@@ -287,13 +288,18 @@ input[type="checkbox"]:checked {
     border-radius: var(--borderRadiusR);
 }
 
+
+
+/* change all tag usage to be direct not variable */
+/* notice needs to be gray */
 .tag {
     padding: var(--paddingS);
-    background-color: var(--tagColor, var(--color2));
+    background-color: var(--color2);
     border-radius: var(--borderRadiusES);
 }
 
 .tag2 {
+    /* color tags with bullet points */
     --tagColor: var(--tagColorStarter, var(--color1));
 
     display: flex;
@@ -317,11 +323,13 @@ input[type="checkbox"]:checked {
 }
 
 .tag3 {
+    /* rounder tag */
     padding: var(--paddingES) var(--paddingS);
     text-transform: capitalize;
     border-radius: var(--borderRadiusR);
     color: var(--shade2);
     background-color: var(--bg1);
+    justify-self: left;
 }
 
 .svgImg {
@@ -341,6 +349,51 @@ input[type="checkbox"]:checked {
 
 .largeText {
     font-size: var(--fontSizeEL);
+}
+
+.recordTable {
+    display: grid;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+.recordTable>tr {
+    display: flex;
+    align-items: center;
+    padding: var(--paddingR);
+    gap: var(--gapS);
+    border-bottom: 3px solid var(--bg1);
+}
+
+.recordTable>tr:has(th) {
+    background-color: var(--color1);
+    text-transform: capitalize;
+    padding: var(--paddingL) var(--paddingR) !important;
+    white-space: nowrap;
+}
+
+.recordTable>tr:not(:has(th)):hover,
+.recordTable>tr.selected {
+    /* ensure table rows are selected - those not containing headings */
+    background-color: hsl(from var(--color2) h s calc(l * 1.07));
+}
+
+.recordTable th,
+.recordTable td {
+    flex: 1 0 120px;
+    display: grid;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+.recordTable th.larger,
+.recordTable td.larger {
+    flex-basis: 250px;
+}
+
+.recordTable th.smaller,
+.recordTable td.smaller {
+    flex: 0 0 50px;
 }
 
 /* mobile */

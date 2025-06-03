@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../global.css" />
+    <script type="module" defer src="../layout.js"></script>
+
+    <script type="module" defer src="teachers.js"></script>
+</head>
+
+<body>
+    <div id="sidebarTemplate"></div>
+
+    <div class="allCont">
+        <div id="navTemplate"></div>
+
+        <main class="main">
+            <div style="display: grid; align-content: flex-start; gap: var(--gapR);">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <h2>all teachers list</h2>
+
+                    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--gapR);">
+                        <search-bar id="studentSearchButton" placeholder="Search by ID, Name, or Subject"
+                            style="flex: 1 1 auto;"></search-bar>
+
+                        <div
+                            style="flex: 0 1 auto; display: flex; align-items: center; flex-wrap: wrap; gap: var(--gapR);">
+                            <button class="button4" style="background-color: var(--color4); padding: var(--paddingR);">
+                                <img src="../public/bar2.svg" class="svgImg" />
+                            </button>
+
+                            <button class="button4" style="background-color: var(--color4); padding: var(--paddingR);">
+                                <img src="../public/filter.svg" class="svgImg" />
+                            </button>
+
+                            <button class="button4" style="background-color: var(--color4); padding: var(--paddingR);">
+                                <img src="../public/plus.svg" class="svgImg" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- default layout for heading in student table -->
+                <template id="teacherTableHeadingRowTemplate">
+                    <tr>
+                        <th class="smaller">
+                            <input type="checkbox" style="--checkboxColorStarter: var(--color2)" />
+                        </th>
+
+                        <th class="larger">
+                            <p>teachers name</p>
+                        </th>
+
+                        <th>
+                            <p>school ID</p>
+                        </th>
+
+                        <th>
+                            <p>subject</p>
+                        </th>
+
+                        <th>
+                            <p style="text-transform: initial;">Class(es)</p>
+                        </th>
+
+                        <th>
+                            <p>phone number</p>
+                        </th>
+
+                        <th class="larger">
+                            <p>address</p>
+                        </th>
+
+                        <th>
+                            <p>action</p>
+                        </th>
+                    </tr>
+                </template>
+
+                <!-- default layout for row in teacher table -->
+                <template id="teacherTableRowTemplate">
+                    <tr>
+                        <td class="smaller">
+                            <input type="checkbox" class="teacherCheckbox" />
+                        </td>
+
+                        <td class="larger">
+                            <div
+                                style="display: grid; align-content: flex-start; grid-template-columns: 2.5rem 1fr; gap: var(--gapS)">
+                                <div style="border-radius: var(--borderRadiusL); overflow: clip; aspect-ratio: 1/1;">
+                                    <img class="teacherRecordProfile"
+                                        style="object-fit: cover; height: 100%; width: 100%;" />
+                                </div>
+
+                                <div style="display: grid; align-content: flex-start; gap: var(--gapS);">
+                                    <p class="teacherRecordName"></p>
+
+                                    <p class="teacherRecordEmail" style="color: var(--shade1);"></p>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <p class="teacherSchoolId"></p>
+                        </td>
+
+                        <td>
+                            <p class="teacherRecordSubject"></p>
+                        </td>
+
+                        <td>
+                            <p class="teacherRecordClasses"></p>
+                        </td>
+
+                        <td>
+                            <p class="teacherRecordPhoneNumber"></p>
+                        </td>
+
+                        <td class="larger">
+                            <p class="teacherRecordAddress"></p>
+                        </td>
+
+                        <td>
+                            <div style="display: flex; align-items: center; gap: var(--gapR);">
+                                <img src="../public/edit.svg" class="svgImg studentRecordEditBttn" />
+
+                                <img src="../public/delete.svg" class="svgImg studentRecordDeleteBttn" />
+
+                                <img src="../public/more.svg" class="svgImg studentRecordDeleteBttn" />
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+
+                <table id="teacherTable" class="recordTable"></table>
+
+                <div
+                    style="display: grid; align-content: flex-start; grid-template-columns: auto 1fr auto; align-items: center;">
+                    <button class="button2">previous</button>
+
+                    <ul style="display: flex; justify-content: center; gap: var(--gapS); color: var(--shade1);">
+                        <li style="color: var(--shade2);">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>...</li>
+                        <li>17</li>
+                    </ul>
+
+                    <button class="button2">next</button>
+                </div>
+            </div>
+        </main>
+
+        <div id="footerTemplate"></div>
+    </div>
+</body>
+
+</html>

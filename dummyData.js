@@ -1,24 +1,125 @@
 export const dummyUsers = {
-    "student1": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Sophia Wilson" },
-    "student2": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Liam Johnson" },
-    "student3": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Olivia Brown" },
-    "student4": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Noah Davis" },
-    "student5": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Emma Garcia" },
-    "student6": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "William Martinez" },
-    "student7": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ava Rodriguez" },
-    "student8": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "James Hernandez" },
-    "student9": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Isabella Lee" },
-    "student10": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Benjamin Walker" },
-    "student11": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mia Hall" },
-    "student12": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Lucas Allen" },
-    "student13": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Amelia Young" },
-    "student14": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Henry King" },
-    "student15": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Charlotte Wright" },
-    "student16": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Alexander Scott" },
-    "student17": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Harper Green" },
-    "student18": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Daniel Adams" },
-    "student19": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Evelyn Baker" },
-    "student20": { img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Michael Nelson" }
+    "student1": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Sophia Wilson", email: "sophia.wilson@school.edu", dob: "2008-05-21", phone: "555-0101", address: "12 Elm Street",
+        type: "student", class: "9A"
+    },
+    "student2": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Liam Johnson", email: "liam.johnson@school.edu", dob: "2007-11-03", phone: "555-0102", address: "45 Oak Road",
+        type: "student", class: "10B"
+    },
+    "student3": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Olivia Brown", email: "olivia.brown@school.edu", dob: "2009-01-15", phone: "555-0103", address: "89 Pine Ave",
+        type: "student", class: "8C"
+    },
+    "student4": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Noah Davis", email: "noah.davis@school.edu", dob: "2008-09-09", phone: "555-0104", address: "23 Birch Lane",
+        type: "student", class: "9B"
+    },
+    "student5": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Emma Garcia", email: "emma.garcia@school.edu", dob: "2007-12-30", phone: "555-0105", address: "17 Maple Court",
+        type: "student", class: "10A"
+    },
+    "student6": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "William Martinez", email: "william.martinez@school.edu", dob: "2008-07-11", phone: "555-0106", address: "61 Cedar Street",
+        type: "student", class: "9C"
+    },
+    "student7": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ava Rodriguez", email: "ava.rodriguez@school.edu", dob: "2009-03-25", phone: "555-0107", address: "34 Spruce Way",
+        type: "student", class: "8B"
+    },
+    "student8": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "James Hernandez", email: "james.hernandez@school.edu", dob: "2007-10-17", phone: "555-0108", address: "78 Ash Blvd",
+        type: "student", class: "10C"
+    },
+    "student9": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Isabella Lee", email: "isabella.lee@school.edu", dob: "2008-04-08", phone: "555-0109", address: "56 Willow Drive",
+        type: "student", class: "9A"
+    },
+    "student10": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Benjamin Walker", email: "benjamin.walker@school.edu", dob: "2009-02-20", phone: "555-0110", address: "101 Fir Lane",
+        type: "student", class: "8A"
+    },
+    "student11": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mia Hall", email: "mia.hall@school.edu", dob: "2008-06-15", phone: "555-0111", address: "13 Peach Street",
+        type: "student", class: "9C"
+    },
+    "student12": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Lucas Allen", email: "lucas.allen@school.edu", dob: "2007-08-09", phone: "555-0112", address: "88 Palm Blvd",
+        type: "student", class: "10A"
+    },
+    "student13": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Amelia Young", email: "amelia.young@school.edu", dob: "2009-12-03", phone: "555-0113", address: "35 Chestnut Road",
+        type: "student", class: "8C"
+    },
+    "student14": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Henry King", email: "henry.king@school.edu", dob: "2008-11-11", phone: "555-0114", address: "27 Cherry Blvd",
+        type: "student", class: "9B"
+    },
+    "student15": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Charlotte Wright", email: "charlotte.wright@school.edu", dob: "2007-05-07", phone: "555-0115", address: "41 Plum Street",
+        type: "student", class: "10B"
+    },
+    "student16": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Alexander Scott", email: "alexander.scott@school.edu", dob: "2009-09-19", phone: "555-0116", address: "72 Magnolia Lane",
+        type: "student", class: "8B"
+    },
+    "student17": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Harper Green", email: "harper.green@school.edu", dob: "2008-03-12", phone: "555-0117", address: "29 Apple Court",
+        type: "student", class: "9A"
+    },
+    "student18": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Daniel Adams", email: "daniel.adams@school.edu", dob: "2007-06-22", phone: "555-0118", address: "53 Olive Ave",
+        type: "student", class: "10C"
+    },
+    "student19": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Evelyn Baker", email: "evelyn.baker@school.edu", dob: "2008-10-05", phone: "555-0119", address: "80 Walnut Way",
+        type: "student", class: "9C"
+    },
+    "student20": {
+        img: "https://images.pexels.com/photos/2905820/pexels-photo-2905820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Michael Nelson", email: "michael.nelson@school.edu", dob: "2009-07-28", phone: "555-0120", address: "96 Poplar Road",
+        type: "student", class: "8A"
+    },
+    // Teachers
+    "teacher1": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mr. John Carter", email: "john.carter@school.edu", dob: "1980-04-10", phone: "555-0201", address: "12 Scholar Lane",
+        type: "teacher", schoolId: "T1001", subject: "Mathematics", classes: ["9A", "10B", "8C"]
+    },
+    "teacher2": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ms. Linda Perez", email: "linda.perez@school.edu", dob: "1985-08-22", phone: "555-0202", address: "43 Educator Ave",
+        type: "teacher", schoolId: "T1002", subject: "English", classes: ["8A", "9B", "10C"]
+    },
+    "teacher3": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mr. Mark Thompson", email: "mark.thompson@school.edu", dob: "1978-01-17", phone: "555-0203", address: "58 Mentor Blvd",
+        type: "teacher", schoolId: "T1003", subject: "Biology", classes: ["9C", "10A", "8B"]
+    },
+    "teacher4": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ms. Rachel Kim", email: "rachel.kim@school.edu", dob: "1983-03-04", phone: "555-0204", address: "21 Campus Rd",
+        type: "teacher", schoolId: "T1004", subject: "Chemistry", classes: ["9B", "10B", "8C"]
+    },
+    "teacher5": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mr. David Lee", email: "david.lee@school.edu", dob: "1975-06-14", phone: "555-0205", address: "64 Faculty St",
+        type: "teacher", schoolId: "T1005", subject: "Physics", classes: ["10A", "9A", "8A"]
+    },
+    "teacher6": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ms. Grace Turner", email: "grace.turner@school.edu", dob: "1986-02-28", phone: "555-0206", address: "85 Library Ln",
+        type: "teacher", schoolId: "T1006", subject: "Geography", classes: ["8A", "9C", "10C"]
+    },
+    "teacher7": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mr. Thomas Wright", email: "thomas.wright@school.edu", dob: "1982-09-05", phone: "555-0207", address: "37 Blackboard Blvd",
+        type: "teacher", schoolId: "T1007", subject: "History", classes: ["9A", "10B", "8B"]
+    },
+    "teacher8": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ms. Emily Moore", email: "emily.moore@school.edu", dob: "1981-07-19", phone: "555-0208", address: "16 Chalk St",
+        type: "teacher", schoolId: "T1008", subject: "Computer Science", classes: ["10C", "9B", "8C"]
+    },
+    "teacher9": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Mr. Kevin Lewis", email: "kevin.lewis@school.edu", dob: "1979-12-01", phone: "555-0209", address: "99 Technology Ave",
+        type: "teacher", schoolId: "T1009", subject: "Art", classes: ["9C", "10A", "8A"]
+    },
+    "teacher10": {
+        img: "https://images.pexels.com/photos/16160869/pexels-photo-16160869/free-photo-of-smiling-teacher-standing-by-whiteboard-in-classroom.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", name: "Ms. Natalie Adams", email: "natalie.adams@school.edu", dob: "1987-11-13", phone: "555-0210", address: "70 Creative Blvd",
+        type: "teacher", schoolId: "T1010", subject: "Music", classes: ["8B", "9B", "10B"]
+    }
 };
 export const dummyData = {
     calenderListItems: {
@@ -168,9 +269,9 @@ export const dummyData = {
         { text: "Send reminder for exam schedule", bg: "var(--color2)" },
         { text: "Setup audio for choir performance", bg: "var(--color3)" },
     ],
-    studentsList: [
+    attendanceList: [
         {
-            name: "lucas johnson",
+            userId: "student1",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -192,7 +293,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Emily Peterson",
+            userId: "student2",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -214,7 +315,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Michael Brown",
+            userId: "student3",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -236,7 +337,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Hannah White",
+            userId: "student4",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -258,7 +359,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Oliver Martinez",
+            userId: "student5",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -280,7 +381,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Isabelle Garcia",
+            userId: "student6",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -302,7 +403,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Ethan Lee",
+            userId: "student7",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -324,7 +425,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Sophia Wilson",
+            userId: "student8",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -346,7 +447,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Aiden taylor",
+            userId: "student9",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -368,7 +469,7 @@ export const dummyData = {
             },
         },
         {
-            name: "Ava Smith",
+            userId: "student10",
             attendance: {
                 "Fri May 02 2025": { attended: true },
                 "Sat May 03 2025": { attended: null },
@@ -391,26 +492,26 @@ export const dummyData = {
         },
     ],
     feeCollectionList: [
-        { userId: "student1", date: "2015-02-17", class: "11A", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
-        { userId: "student2", date: "2015-03-12", class: "10B", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
-        { userId: "student3", date: "2015-04-01", class: "9A", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
-        { userId: "student4", date: "2015-02-25", class: "12C", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
-        { userId: "student5", date: "2015-05-15", class: "11B", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
-        { userId: "student6", date: "2015-03-10", class: "10C", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" },
-        { userId: "student7", date: "2015-01-20", class: "9B", tuition: 3900, activitiesFee: 180, miscellaneous: 120, amount: null, status: "paid" },
-        { userId: "student8", date: "2015-06-11", class: "8A", tuition: 3700, activitiesFee: 160, miscellaneous: 90, amount: null, status: "pending" },
-        { userId: "student9", date: "2015-04-18", class: "11A", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
-        { userId: "student10", date: "2015-07-21", class: "12A", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "overdue" },
-        { userId: "student11", date: "2015-08-05", class: "10B", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "pending" },
-        { userId: "student12", date: "2015-09-13", class: "9C", tuition: 4000, activitiesFee: 220, miscellaneous: 100, amount: null, status: "paid" },
-        { userId: "student13", date: "2015-10-27", class: "11B", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
-        { userId: "student14", date: "2015-11-03", class: "8B", tuition: 3600, activitiesFee: 150, miscellaneous: 100, amount: null, status: "overdue" },
-        { userId: "student15", date: "2015-12-22", class: "9A", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
-        { userId: "student16", date: "2015-02-14", class: "12C", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
-        { userId: "student17", date: "2015-03-30", class: "10A", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
-        { userId: "student18", date: "2015-04-09", class: "11C", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
-        { userId: "student19", date: "2015-06-20", class: "12A", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
-        { userId: "student20", date: "2015-07-11", class: "10C", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" }
+        { userId: "student1", date: "2015-02-17", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student2", date: "2015-03-12", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
+        { userId: "student3", date: "2015-04-01", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
+        { userId: "student4", date: "2015-02-25", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student5", date: "2015-05-15", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
+        { userId: "student6", date: "2015-03-10", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" },
+        { userId: "student7", date: "2015-01-20", tuition: 3900, activitiesFee: 180, miscellaneous: 120, amount: null, status: "paid" },
+        { userId: "student8", date: "2015-06-11", tuition: 3700, activitiesFee: 160, miscellaneous: 90, amount: null, status: "pending" },
+        { userId: "student9", date: "2015-04-18", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student10", date: "2015-07-21", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "overdue" },
+        { userId: "student11", date: "2015-08-05", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "pending" },
+        { userId: "student12", date: "2015-09-13", tuition: 4000, activitiesFee: 220, miscellaneous: 100, amount: null, status: "paid" },
+        { userId: "student13", date: "2015-10-27", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "paid" },
+        { userId: "student14", date: "2015-11-03", tuition: 3600, activitiesFee: 150, miscellaneous: 100, amount: null, status: "overdue" },
+        { userId: "student15", date: "2015-12-22", tuition: 4000, activitiesFee: 200, miscellaneous: 100, amount: null, status: "pending" },
+        { userId: "student16", date: "2015-02-14", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student17", date: "2015-03-30", tuition: 4200, activitiesFee: 250, miscellaneous: 150, amount: null, status: "overdue" },
+        { userId: "student18", date: "2015-04-09", tuition: 4500, activitiesFee: 300, miscellaneous: 200, amount: null, status: "pending" },
+        { userId: "student19", date: "2015-06-20", tuition: 4800, activitiesFee: 350, miscellaneous: 250, amount: null, status: "paid" },
+        { userId: "student20", date: "2015-07-11", tuition: 4300, activitiesFee: 275, miscellaneous: 180, amount: null, status: "overdue" }
     ],
     noticeBoard: [
         {

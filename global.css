@@ -130,6 +130,10 @@ a {
     cursor: pointer;
 }
 
+b {
+    font-weight: bold;
+}
+
 h1 {
     /* title */
     font-family: manrope;

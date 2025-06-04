@@ -6,6 +6,222 @@
     <script type="module" defer src="../layout.js"></script>
 
     <script type="module" defer src="dashboard.js"></script>
+
+    <style>
+        .dashboardTopCont {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            grid-template-columns: 1fr auto;
+            position: relative;
+        }
+
+        .dashboardProfileCont {
+            flex: 2 1 400px;
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            grid-template-columns: 10rem auto;
+            background-color: var(--color1);
+            padding: var(--paddingR);
+            border-radius: var(--borderRadiusR);
+        }
+
+        .dashboard4ListItem {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+            grid-template-columns: 2rem 1fr;
+            background-color: var(--bg2);
+            padding: var(--paddingR);
+            border-radius: var(--borderRadiusR);
+            font-size: var(--fontSizeS);
+        }
+
+        .dashboard4ListItem>div {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+        }
+
+        .dashboard4ListItem>div>p {
+            color: var(--shade1);
+            text-transform: capitalize;
+        }
+
+        .dashboardSmallList {
+            display: flex;
+            gap: var(--gapR);
+            flex-wrap: wrap;
+        }
+
+        .dashboardSmallList>li {
+            flex: 0 0 auto;
+            display: flex;
+            gap: var(--gapS);
+        }
+
+        .dashboardRightSidebar {
+            width: min(350px, 98vw);
+            display: none;
+            align-content: flex-start;
+            gap: var(--gapR);
+            background-color: var(--bg1);
+        }
+
+        .middleCont {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            grid-template-areas:
+                "a b b"
+                "a b b"
+                "a b b"
+                "a b b"
+                "c b b"
+                "c b b"
+                "c d d"
+                "c d d"
+                "c d d"
+                "c d d"
+                "c d d"
+                "c d d"
+            ;
+            grid-auto-rows: 50px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .tile {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            padding: var(--paddingR);
+            border-radius: var(--borderRadiusR);
+            background-color: var(--bg2);
+        }
+
+        .tileTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .tileTop>div {
+            display: grid;
+            align-content: flex-start;
+        }
+
+        .tileMenu {
+            display: grid;
+            align-content: flex-start;
+            justify-items: center;
+            gap: var(--gapR);
+        }
+
+        .recentActivityListCont {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapR);
+            overflow: auto;
+        }
+
+        .recentActivityListCont>h3 {
+            color: var(--shade1) !important;
+        }
+
+        .recentActivityListCont>li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--gapR);
+            text-transform: capitalize;
+        }
+
+        .recentActivityListCont>li>img {
+            width: 1.5rem;
+        }
+
+
+
+
+
+
+
+        .calenderCont {
+            display: grid;
+            align-content: flex-start;
+            font-size: var(--fontSizeS);
+        }
+
+        .calenderTable {
+            display: grid;
+            align-content: flex-start;
+            border-bottom: 3px solid var(--bg1);
+            border-right: 3px solid var(--bg1);
+            border-radius: var(--borderRadiusR);
+        }
+
+        .calenderTable>tr {
+            display: grid;
+            align-content: flex-start;
+            grid-template-columns: repeat(7, 1fr)
+        }
+
+        .calenderCell {
+            display: grid;
+            align-content: flex-start;
+            gap: var(--gapS);
+            aspect-ratio: 1/1.5;
+            max-height: 200px;
+            border-top: 3px solid var(--bg1);
+            border-left: 3px solid var(--bg1);
+            padding: var(--paddingR);
+        }
+
+        .calenderCell:not(.calenderTableHead):hover {
+            background-color: var(--color1);
+        }
+
+        .calenderTableHead {
+            aspect-ratio: initial;
+        }
+
+
+
+
+
+
+
+
+        @media only screen and (max-width: 800px) {
+            .dashboardTopCont {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboardRightSidebar {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .middleCont {
+                grid-template-areas: none;
+                grid-auto-rows: auto;
+                grid-template-columns: 1fr;
+            }
+
+            .middleCont>* {
+                grid-area: unset !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .dashboardProfileCont {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -14,11 +230,538 @@
     <div class="allCont">
         <div id="navTemplate"></div>
 
-        <main class="main">
+        <main class="main" style="background-color: var(--bg1);padding: 0;">
+            <div style="display: grid; align-content: flex-start;">
+                <!-- top -->
+                <div class="dashboardTopCont">
+                    <div style="display: grid; align-content: flex-start; gap: var(--gapR);">
+                        <!-- button to show right container -->
+                        <button id="dashboardRightSidebarToggleBttn" style="display: none; justify-self: flex-end;">
+                            <img src="../public/bar.svg" class="svgImg" />
+                        </button>
+
+                        <!-- top -->
+                        <div style="display: flex; gap: var(--gapR); flex-wrap: wrap;">
+                            <!-- profile -->
+                            <div class="dashboardProfileCont">
+                                <img src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    style="object-fit: cover; border-radius: var(--borderRadiusEL); aspect-ratio: 1/1; width: 100%; overflow: clip;" />
+
+                                <div style="display: grid; align-content: flex-start; gap: var(--gapR);">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <h2 class="largeText">Welcome, Mia Williams</h2>
+
+                                        <img src="../public/edit.svg" class="svgImg" />
+                                    </div>
+
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+                                    <ul class="dashboardSmallList">
+                                        <li>
+                                            <img src="../public/bar.svg" class="svgImg" />
+
+                                            <p>Grade 12</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/calendar.svg" class="svgImg" />
+
+                                            <p>November, 25 2009</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/email.svg" class="svgImg" />
+
+                                            <p>miawilliams@gmail.co</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/phone.svg" class="svgImg" />
+
+                                            <p>+876 1234 5678</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- small tiles -->
+                            <div
+                                style="flex: 1 1 300px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: var(--gapR);">
+                                <div class="dashboard4ListItem">
+                                    <img src="../public/bar.svg" />
+
+                                    <div>
+                                        <h2 class="largeText">97%</h2>
+
+                                        <p>attendance</p>
+                                    </div>
+                                </div>
+
+                                <div class="dashboard4ListItem">
+                                    <img src="../public/bar.svg" />
+
+                                    <div>
+                                        <h2 class="largeText">258+</h2>
+
+                                        <p>tasks complete</p>
+                                    </div>
+                                </div>
+
+                                <div class="dashboard4ListItem">
+                                    <img src="../public/bar.svg" />
+
+                                    <div>
+                                        <h2 class="largeText">64%</h2>
+
+                                        <p>tasks in progress</p>
+                                    </div>
+                                </div>
+
+                                <div class="dashboard4ListItem">
+                                    <img src="../public/bar.svg" />
+
+                                    <div>
+                                        <h2 class="largeText">97%</h2>
+
+                                        <p>reward points</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- middle 3 columns, 12 rows -->
+                        <div class="middleCont">
+                            <div style="grid-area: a;" class="tile">
+                                <div class="tileTop">
+                                    <h2>performance</h2>
+
+                                    <div>
+                                        <img src="../public/more.svg" class="svgImg" />
+                                    </div>
+                                </div>
+
+                                <div class="tileMenu">
+                                    <speedometer-rating value="3.4" max="4" topText="" bottomTextPre="of "
+                                        bottomTextAfter=".0 max GPA"></speedometer-rating>
+
+                                    <h3>1st semester - 6st semester</h3>
+                                </div>
+                            </div>
+
+                            <div style="grid-area: b;" class="tile">
+                                <div class="tileTop">
+                                    <h2>score activity</h2>
+
+                                    <div>
+                                        <custom-select id="scoreDateSelection" options="daily, weekly, monthly"
+                                            value="monthly"></custom-select>
+                                    </div>
+                                </div>
+
+                                <div class="tileMenu">
+                                    <canvas id="scoreChart"
+                                        style="height: 100%; min-height: 270px; max-width: 400px;"></canvas>
+                                </div>
+                            </div>
+
+                            <div style="grid-area: c;" class="tile">
+                                <div class="tileTop">
+                                    <h2>recent activity</h2>
+
+                                    <div>
+                                        <a href="#" style="color: var(--shade1);">
+                                            <p>View All</p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="tileMenu" style="overflow: auto;">
+                                    <ul class="recentActivityListCont">
+                                        <h3>today</h3>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p><b>reminder</b>: attending physics group meeting</p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p><b>reminder</b>: art supplies collection</p>
+
+                                            <p style="color: var(--shade1);">10:30 am</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p>you got an <b>award for 1st place student</b></p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+
+                                        <h3>yesterday</h3>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p>biology with ms. carter quiz <b>scheduled</b></p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p><b>submitted</b> mathematics assignment</p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p><b>submit</b> the regional robotics champion</p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+
+                                        <li>
+                                            <img src="../public/palette.svg" />
+
+                                            <p><b>received</b> feedback on english essay</p>
+
+                                            <p style="color: var(--shade1);">1:00 pm</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div style="grid-area: d;" class="tile">
+                                <div class="tileTop">
+                                    <h2>grade by subject</h2>
+
+                                    <div style="display: flex; gap: var(--gapR); align-items: center;">
+                                        <custom-select id="subjectDateSelection" options="daily, weekly, monthly"
+                                            value="weekly"></custom-select>
+
+                                        <custom-select id="subjectGradeSelection"
+                                            options="grade 1, grade 2, grade 3, grade 4, grade 5, grade 6"
+                                            value="grade 3"></custom-select>
+                                    </div>
+                                </div>
+
+                                <!-- hold the base gradeSubject items -->
+                                <template id="gradeSubjectTemplate">
+                                    <div class="gradeSubjectItem"
+                                        style="position: relative; padding: var(--paddingS); background-color: var(--bg1); z-index: 0; font-size: var(--fontSizeS);">
+                                        <h3 class="gradeSubjectTitle"></h3>
+
+                                        <div class="gradeSubjectMarker"
+                                            style="position: absolute; top: 0; left: 0; background-color: var(--color2); height: 100%; z-index: -1;">
+                                        </div>
+                                    </div>
+                                </template>
+
+                                <div class="tileMenu" style="justify-items: stretch; overflow: auto;">
+                                    <div
+                                        style="display: grid; align-content: flex-start; overflow: auto; gap: var(--gapR);">
+                                        <div id="gradeSubjectCont"
+                                            style="display: grid; align-content: flex-start; gap: var(--gapR);">
+                                        </div>
+
+                                        <ul
+                                            style="display: grid; align-content: flex-start; grid-template-columns: repeat(11, 1fr); font-size: var(--fontSizeS);color: var(--shade1);">
+                                            <li>0</li>
+                                            <li>10</li>
+                                            <li>20</li>
+                                            <li>30</li>
+                                            <li>40</li>
+                                            <li>50</li>
+                                            <li>60</li>
+                                            <li>70</li>
+                                            <li>80</li>
+                                            <li>90</li>
+                                            <li>100</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboardRightSidebar">
+                        <!-- close sidebar button on mobile -->
+                        <button id="dashboardRightSidebarCloseBttn" style="display: none; justify-self: flex-end;">
+                            <img src="../public/close.svg" class="svgImg" />
+                        </button>
+
+                        <!-- keep white background -->
+                        <div style="display: grid; align-content: flex-start; background-color: var(--bg2);">
+
+
+
+
+
+
+                            <!-- calender -->
+                            <div class="calenderCont">
+                                <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                                    <button data-move-option="prev" class="button1 dateMoveButton">
+                                        <svg style="fill: var(--shade3);" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 320 512">
+                                            <path
+                                                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+                                        </svg>
+                                    </button>
+
+                                    <h2 id="calenderTodayDateMarker" style="flex: 1 1 auto; text-align: center;"></h2>
+
+                                    <button data-move-option="next" class="button1 dateMoveButton">
+                                        <svg style="fill: var(--shade3);" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 320 512">
+                                            <path
+                                                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!-- default layout for table headings in the calender -->
+                                <template id="calenderTableHead">
+                                    <th class="calenderCell calenderTableHead">
+
+                                    </th>
+                                </template>
+
+                                <!-- default layout for table data in the calender -->
+                                <template id="calenderTableData">
+                                    <td class="calenderCell calenderTableData">
+                                        <!-- date -->
+                                        <p></p>
+                                    </td>
+                                </template>
+
+                                <table class="calenderTable">
+
+                                </table>
+                            </div>
+
+
+
+
+                            <!-- agenda -->
+                            <p>agenda</p>
+                        </div>
+
+                        <div class="tile">
+                            <div class="tileTop">
+                                <h2>messages</h2>
+
+                                <div>
+                                    <a href="#" style="color: var(--shade1);">
+                                        <p>View All</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="tileMenu">
+                                <div id="messagesCont"
+                                    style="display: grid; align-content: flex-start; gap: var(--gapR);">
+                                    <p>message</p>
+                                    <!-- make template -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- assignments table -->
+                <div class="tile">
+                    <div class="tileTop">
+                        <h2>assignments</h2>
+
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--gapR);">
+                            <search-bar id="studentSearchButton" placeholder="Search by Subject"
+                                style="flex: 1 1 auto;"></search-bar>
+
+                            <div
+                                style="flex: 0 1 auto; display: flex; align-items: center; flex-wrap: wrap; gap: var(--gapR);">
+                                <button class="button4"
+                                    style="background-color: var(--color4); padding: var(--paddingR);">
+                                    <img src="../public/bar2.svg" class="svgImg" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tileMenu" style="justify-items: stretch;">
+                        <!-- default layout for theading in dashboard assignments table -->
+                        <template id="dashboardAssignmentsTableHeadingRowTemplate">
+                            <tr>
+                                <th class="smaller">
+                                    <p>no</p>
+                                </th>
+
+                                <th>
+                                    <p>task</p>
+                                </th>
+
+                                <th>
+                                    <p>subject</p>
+                                </th>
+
+                                <th>
+                                    <p>due date</p>
+                                </th>
+
+                                <th>
+                                    <p>time</p>
+                                </th>
+
+                                <th>
+                                    <p>status</p>
+                                </th>
+
+                                <th>
+                                    <p>action</p>
+                                </th>
+                            </tr>
+                        </template>
+
+                        <!-- default layout for row in dashboard assignments table -->
+                        <template id="dashboardAssignmentsTableRowTemplate">
+                            <tr>
+                                <td class="smaller">
+                                    <p class="dashboardAssignmentRecordNo"></p>
+                                </td>
+
+                                <td>
+                                    <p class="dashboardAssignmentRecordTask"></p>
+                                </td>
+
+                                <td>
+                                    <p class="dashboardAssignmentRecordSubject"></p>
+                                </td>
+
+                                <td>
+                                    <p class="dashboardAssignmentRecordDueDate"></p>
+                                </td>
+
+                                <td>
+                                    <p class="dashboardAssignmentRecordTime"></p>
+                                </td>
+
+                                <td>
+                                    <div class="dashboardAssignmentRecordStatus tag2">
+                                        <p class="dashboardAssignmentRecordStatusP"></p>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: var(--gapR);">
+                                        <img src="../../public/edit.svg"
+                                            class="svgImg dashboardAssignmentRecordEditBttn" />
+
+                                        <img src="../../public/delete.svg"
+                                            class="svgImg dashboardAssignmentRecordDeleteBttn" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+
+                        <table id="dashboardAssignmentsTable" class="recordTable"></table>
+
+                        <div
+                            style="display: grid; align-content: flex-start; grid-template-columns: auto 1fr auto; align-items: center;">
+                            <button class="button2">previous</button>
+
+                            <ul style="display: flex; justify-content: center; gap: var(--gapS); color: var(--shade1);">
+                                <li style="color: var(--shade2);">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>...</li>
+                                <li>17</li>
+                            </ul>
+
+                            <button class="button2">next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <div id="footerTemplate"></div>
     </div>
+
+    <script type="module">
+        import {
+            Chart,
+            LineController,
+            LineElement,
+            PointElement,
+            LinearScale,
+            Title,
+            Tooltip,
+            CategoryScale
+        } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/+esm';
+
+        // Register chart components
+        Chart.register(
+            LineController,
+            LineElement,
+            PointElement,
+            LinearScale,
+            Title,
+            Tooltip,
+            CategoryScale
+        );
+
+        // Your assignment month data
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const scores = [50, 70, 80, 90, 60, 70, 80, 90, 100, 50, 80, 100];
+
+        const ctx = document.getElementById("scoreChart");
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: "Scores title",
+                    data: scores,
+                    borderColor: 'yellow',
+                    backgroundColor: 'orange',
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: context => `Score: $${context.parsed.y}`
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                    x: {
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

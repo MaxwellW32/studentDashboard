@@ -4,25 +4,24 @@ import { getComponentHTML, loadComponent } from "./utility.js";
 
 //notes
 //pages load their own ts, components need to have them run via function from whatever page called from
-//
-//
-//
+//use id's only for selections - use inline styles mostly - select classes
 
 //to do
+//top section has 2 column - then 1 column on mobile, second section for table
+//templates: top 4 container items,  
+//classes: 
+//// global - agenda items,
+//// tile - backgrounds - white,  top section flex, menu - grid
+//
+//
+//
+//
+//
 //get search bar section from notice board...
 //get table from fee collection
-
-//multiple pages to go over multiple students
-//functions to handle logic, functions to populate html
 //animate display none - proper color handling
-//
-//
-//
-//
-//
 
 
-//use id's only for selections - use inline styles mostly - select classes
 
 async function layout() {
     //load content first

@@ -191,12 +191,22 @@ export type noticeBoardItemType = {
     link: string
 }
 
+export type assignmentItemStatusType = "in progress" | "not started"
+
+export type assignmentItemType = {
+    task: string,
+    subject: string,
+    dueDate: string,
+    status: assignmentItemStatusType
+}
+
 type dummyDataType = {
     calenderListItems: calenderListItemsType,
     agenda: agendaType[],
     attendanceList: attendanceListType[],
     feeCollectionList: feeCollectionType[],
-    noticeBoard: noticeBoardItemType[]
+    noticeBoard: noticeBoardItemType[],
+    assignments: assignmentItemType[],
 }
 
 export const dummyData: dummyDataType = {
@@ -691,6 +701,50 @@ export const dummyData: dummyDataType = {
             tags: ["school", "academic", "student"],
             link: "#",
             text: "Help us support families in need by donating canned goods and supplies. Donations accepted until November 25."
+        }
+    ],
+    assignments: [
+        {
+            task: "Read chapters 1-3",
+            subject: "English Literature",
+            dueDate: "May 30, 2025 9:00 AM",
+            status: "in progress",
+        },
+        {
+            task: "Complete Algebra Worksheet 4",
+            subject: "Mathematics",
+            dueDate: "May 31, 2025 3:00 PM",
+            status: "not started",
+        },
+        {
+            task: "Study photosynthesis diagram",
+            subject: "Biology",
+            dueDate: "June 1, 2025 10:00 AM",
+            status: "not started",
+        },
+        {
+            task: "Watch WW2 documentary",
+            subject: "History",
+            dueDate: "June 2, 2025 6:00 PM",
+            status: "in progress",
+        },
+        {
+            task: "Practice 20 Spanish verbs",
+            subject: "Spanish",
+            dueDate: "June 3, 2025 11:00 AM",
+            status: "not started",
+        },
+        {
+            task: "Solve sample problems on Newton's laws",
+            subject: "Physics",
+            dueDate: "June 4, 2025 2:00 PM",
+            status: "in progress",
+        },
+        {
+            task: "Create poster on water cycle",
+            subject: "Geography",
+            dueDate: "June 5, 2025 1:00 PM",
+            status: "not started",
         }
     ]
 };

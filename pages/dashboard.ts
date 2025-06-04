@@ -94,6 +94,8 @@ function dashboard() {
         //make calender
         generateCalendar(selectedDate.getFullYear(), selectedDate.getMonth())
 
+        //agenda items
+        setAgendaCont()
     }
     runOnLoad()
 
@@ -284,4 +286,31 @@ function generateCalendar(year: number, month: number) {
 
         table.appendChild(tr);
     }
+}
+
+function setAgendaCont() {
+    //set html on table data
+    const agendaListCont = getElement("#agendaListCont")
+
+    dummyData.agenda.forEach(eachAgendaItem => {
+        //get the list item templates
+        const agendaListItemTemplate = getElement<HTMLTemplateElement>("#agendaListItemTemplate")
+        const agendaListItemClone = agendaListItemTemplate.content.cloneNode(true) as HTMLElement;
+
+        //set 
+        const listItemLineEl = getElement(".listItemLine", undefined, agendaListItemClone)
+        const listItemTextEl = getElement(".listItemText", undefined, agendaListItemClone)
+        const listItemDateEl = getElement(".listItemDate", undefined, agendaListItemClone)
+        const listItemTag = getElement(".listItemTag", undefined, agendaListItemClone)
+
+        listItemTextEl.innerText = eachAgendaItem.text
+        listItemDateEl.innerText = new Date(eachAgendaItem.date).toLocaleDateString()
+        listItemTag.innerText = eachAgendaItem.tag
+
+        //set styles
+        listItemLineEl.style.backgroundColor = `hsl(from ${eachAgendaItem.bg} h 100 50`
+
+        //add to calender list cont
+        agendaListCont.appendChild(agendaListItemClone)
+    })
 }

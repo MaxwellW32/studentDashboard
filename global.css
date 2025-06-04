@@ -7,7 +7,7 @@
 *::after {
     /* each css block is spaced 50, sub blocks spaces 20 - each has a media query */
     box-sizing: border-box;
-    border: 1px solid red !important;
+    /* border: 1px solid red !important; */
 }
 
 :root {
@@ -151,7 +151,7 @@ h2 {
 
 h3 {
     /* sub headings */
-    font-weight: 400;
+    font-weight: bold;
     font-family: roboto;
     color: var(--shade2) !important;
     font-size: var(--fontSizeR);

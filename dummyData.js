@@ -263,11 +263,11 @@ export const dummyData = {
         ],
     },
     agenda: [
-        { text: "Prep science fair booth", bg: "var(--color1)" },
-        { text: "Confirm staff meeting venue", bg: "var(--color2)" },
-        { text: "Order snacks for open day", bg: "var(--color4)" },
-        { text: "Send reminder for exam schedule", bg: "var(--color2)" },
-        { text: "Setup audio for choir performance", bg: "var(--color3)" },
+        { text: "Prep science fair booth", bg: "var(--color1)", date: "2025-06-12", tag: "mathematics" },
+        { text: "Confirm staff meeting venue", bg: "var(--color2)", date: "2025-06-12", tag: "science" },
+        { text: "Order snacks for open day", bg: "var(--color4)", date: "2025-06-12", tag: "history" },
+        { text: "Send reminder for exam schedule", bg: "var(--color2)", date: "2025-06-12", tag: "art" },
+        { text: "Setup audio for choir performance", bg: "var(--color3)", date: "2025-06-12", tag: "biology" },
     ],
     attendanceList: [
         {

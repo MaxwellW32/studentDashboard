@@ -5,19 +5,7 @@ import { getComponentHTML, loadComponent } from "./utility.js";
 //pages load their own ts, components need to have them run via function from whatever page called from
 //use id's only for selections - use inline styles mostly - select classes
 //to do
-//top section has 2 column - then 1 column on mobile, second section for table
-//templates: top 4 container items,  
-//classes: 
-//// global - agenda items,
-//// tile - backgrounds - white,  top section flex, menu - grid
-//
-//
-//
-//
-//
-//get search bar section from notice board...
-//get table from fee collection
-//animate display none - proper color handling
+//animate display none
 async function layout() {
     //load content first
     await Promise.all([0, 1, 2, 3].map(async (each) => {

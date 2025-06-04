@@ -179,19 +179,21 @@ function calender() {
             const seenListItemClone = seenListItemTemplate.content.cloneNode(true) as HTMLElement;
 
             //set 
-            const listItem = getElement("li", undefined, seenListItemClone)
-            const listItemTitle = getElement(".listItemTitle", undefined, seenListItemClone)
+            const listItemEl = getElement("li", undefined, seenListItemClone)
+            const listItemTitleEl = getElement(".listItemTitle", undefined, seenListItemClone)
+            const calenderListItemLineEl = getElement(".calenderListItemLine", undefined, seenListItemClone)
 
             //set full size
-            if (listItem.dataset.fullSize === undefined) throw new Error("not seeing dataset fullSize")
-            listItem.dataset.fullSize = "false"
+            if (listItemEl.dataset.fullSize === undefined) throw new Error("not seeing dataset fullSize")
+            listItemEl.dataset.fullSize = "false"
 
             //set html values for list item template
-            listItem.style.background = `${eachListItem.bg}`
-            listItemTitle.innerText = `${eachListItem.text}`
+            listItemEl.style.background = `${eachListItem.bg}`
+            listItemTitleEl.innerText = `${eachListItem.text}`
 
             //set styles
-            listItemTitle.style.whiteSpace = "initial" //this ensures the lists in agenda show the full title without showing other fields that are not used e.g description
+            listItemTitleEl.style.whiteSpace = "initial" //this ensures the lists in agenda show the full title without showing other fields that are not used e.g description
+            calenderListItemLineEl.style.backgroundColor = `hsl(from ${eachListItem.bg} h 100 50`
 
             //add to calender list cont
             fragment.appendChild(seenListItemClone)
